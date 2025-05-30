@@ -1,0 +1,565 @@
+# Technical Architecture
+
+## System Overview
+
+Market Fit's platform is built on a modern, cloud-native architecture designed for scale, reliability, and performance. Our distributed system handles millions of sales interactions while maintaining sub-second response times.
+
+## High-Level Architecture
+
+```mermaid
+---
+title: "Platform Architecture Overview"
+---
+graph TD
+    subgraph "Client Layer"
+        CA[Client Apps]
+        WP[Web Portal] 
+        MA[Mobile App]
+    end
+    
+    subgraph "Edge Layer"
+        VE[Vercel Edge Functions]
+        CF[Cloudflare CDN]
+    end
+    
+    subgraph "Application Layer"
+        AI[AI Engine<br/>Portkey + LLMs]
+        SE[Sales Engine<br/>Temporal + Workflows]
+        DE[Data Engine<br/>Analytics + Reporting]
+    end
+    
+    subgraph "Data Layer"
+        SB[Supabase<br/>Primary DB]
+        UP[Upstash<br/>Redis Cache]
+        VD[Vector DB<br/>Embeddings]
+    end
+    
+    subgraph "Monitoring"
+        DD[Datadog]
+        ST[Sentry]
+        CF2[Cloudflare Analytics]
+    end
+    
+    CA --> VE
+    WP --> VE
+    MA --> VE
+    VE --> CF
+    CF --> AI
+    CF --> SE
+    CF --> DE
+    AI --> SB
+    SE --> UP
+    DE --> VD
+    AI --> DD
+    SE --> ST
+    DE --> CF2
+    
+    style CA fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style WP fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style MA fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style VE fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style CF fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style AI fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style SE fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style DE fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style SB fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+    style UP fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+    style VD fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+    style DD fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#fff
+    style ST fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#fff
+    style CF2 fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#fff
+```
+
+<br/>
+
+## Technology Stack Distribution
+
+<br/>
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'pie1': '#1976d2',
+    'pie2': '#388e3c', 
+    'pie3': '#f57c00',
+    'pie4': '#7b1fa2',
+    'pie5': '#d32f2f',
+    'pieTitleTextSize': '25px',
+    'pieSectionTextSize': '19px',
+    'pieLegendTextSize': '19px',
+    'pieStrokeColor': '#fff',
+    'pieStrokeWidth': '2px',
+    'pieOuterStrokeWidth': '2px',
+    'pieOuterStrokeColor': '#fff',
+    'pieSectionTextColor': '#fff',
+    'pieTitleTextColor': '#333',
+    'primaryTextColor': '#333',
+    'primaryColor': '#333',
+    'primaryBorderColor': '#333',
+    'background': 'transparent'
+  }
+}}%%
+pie title "Infrastructure Distribution by Service Type"
+    "AI/ML Services (35%)" : 35
+    "Data Services (25%)" : 25
+    "Edge/CDN (20%)" : 20
+    "Monitoring (15%)" : 15
+    "Communication (5%)" : 5
+```
+
+<br/>
+
+## Data Flow Architecture
+
+<br/>
+
+```mermaid
+---
+title: "Data Processing Pipeline"
+---
+graph LR
+    subgraph "Data Sources"
+        CRM[CRM Systems]
+        API[External APIs]
+        USR[User Interactions]
+    end
+    
+    subgraph "Processing Layer"
+        ETL[ETL Pipeline]
+        VAL[Data Validation]
+        TRF[Transformation]
+    end
+    
+    subgraph "Storage Layer"
+        PDB[Primary DB<br/>Supabase]
+        CDH[Cache<br/>Upstash]
+        VDB[Vector DB<br/>Embeddings]
+    end
+    
+    subgraph "Analytics Layer"
+        RT[Real-time<br/>Analytics]
+        ML[ML Models<br/>Training]
+        RPT[Reports<br/>Dashboard]
+    end
+    
+    CRM --> ETL
+    API --> VAL
+    USR --> TRF
+    ETL --> PDB
+    VAL --> CDH
+    TRF --> VDB
+    PDB --> RT
+    CDH --> ML
+    VDB --> RPT
+    
+    style CRM fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style API fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style USR fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style ETL fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style VAL fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style TRF fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style PDB fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style CDH fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style VDB fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style RT fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+    style ML fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+    style RPT fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+```
+
+<br/>
+
+## Security Architecture
+
+<br/>
+
+```mermaid
+---
+title: "Security Layers and Controls"
+---
+graph TD
+    subgraph "Network Security"
+        CF[Cloudflare WAF]
+        TLS[TLS 1.3 Encryption]
+        ZT[Zero Trust Network]
+    end
+    
+    subgraph "Application Security"
+        AUTH[Supabase Auth]
+        RBAC[Role-Based Access]
+        API[API Security]
+        SM[Secrets Management]
+    end
+    
+    subgraph "Data Security"
+        EAR[Encryption at Rest]
+        EIT[Encryption in Transit]
+        DM[Data Masking]
+        AL[Audit Logging]
+    end
+    
+    subgraph "Compliance"
+        SOC[SOC 2 Type II]
+        GDPR[GDPR Compliance]
+        CCPA[CCPA Compliance]
+        HIPAA[HIPAA Ready]
+    end
+    
+    CF --> AUTH
+    TLS --> RBAC
+    ZT --> API
+    AUTH --> EAR
+    RBAC --> EIT
+    API --> DM
+    SM --> AL
+    EAR --> SOC
+    EIT --> GDPR
+    DM --> CCPA
+    AL --> HIPAA
+    
+    style CF fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#fff
+    style TLS fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#fff
+    style ZT fill:#d32f2f,stroke:#b71c1c,stroke-width:2px,color:#fff
+    style AUTH fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style RBAC fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style API fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style SM fill:#f57c00,stroke:#e65100,stroke-width:2px,color:#fff
+    style EAR fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style EIT fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style DM fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style AL fill:#388e3c,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style SOC fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style GDPR fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style CCPA fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style HIPAA fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+```
+
+<br/>
+
+## Deployment Timeline
+
+<br/>
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'cScale0': '#1976d2',
+    'cScale1': '#388e3c',
+    'cScale2': '#f57c00',
+    'primaryTextColor': '#333',
+    'primaryColor': '#333',
+    'primaryBorderColor': '#333',
+    'lineColor': '#333',
+    'secondaryColor': '#333',
+    'tertiaryColor': '#333'
+  }
+}}%%
+timeline
+    title Infrastructure Deployment Roadmap
+    section Current State
+        Q4 2024 : Core Platform : Edge Functions : AI Integration
+    section Near Term
+        Q1 2025 : Edge AI : GraphQL API : Real-time Features
+        Q2 2025 : Multi-Region : Blockchain : IoT Integration
+    section Future State
+        Q3 2025 : Quantum-Ready : AR/VR Support : 5G Optimization
+        Q4 2025 : Autonomous Agents : Advanced ML : Global Scale
+```
+
+<br/>
+
+## Service Reliability Metrics
+
+<br/>
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'xyChart': {
+      'backgroundColor': 'transparent',
+      'titleColor': '#333',
+      'xAxisLabelColor': '#333',
+      'xAxisTitleColor': '#333',
+      'xAxisTickColor': '#333',
+      'xAxisLineColor': '#333',
+      'yAxisLabelColor': '#333',
+      'yAxisTitleColor': '#333',
+      'yAxisTickColor': '#333',
+      'yAxisLineColor': '#333',
+      'plotColorPalette': '#42a5f5,#66bb6a,#ffa726,#ab47bc,#ef5350'
+    }
+  }
+}}%%
+xychart-beta
+    title "Service Uptime SLA (%)"
+    x-axis ["Vercel Edge", "Supabase DB", "Upstash Cache", "Portkey AI", "Datadog Monitor"]
+    y-axis "Uptime %" 95 --> 100
+    bar [99.9, 99.8, 99.9, 99.7, 99.95]
+```
+
+<br/>
+
+## Core Components
+
+### Edge Functions (Vercel)
+**Serverless Edge Computing**
+- Global edge network deployment
+- Serverless functions for API endpoints
+- Static and dynamic content delivery
+- Automatic scaling and optimization
+
+**Technology Stack:**
+- Vercel Edge Functions
+- Next.js for web applications
+- Cloudflare for CDN and security
+- Edge caching and optimization
+
+### AI Engine
+**LLM Infrastructure with Portkey**
+
+#### LLM Management
+- **Model Orchestration**: Portkey for LLM observability and management
+- **Prompt Engineering**: Version control and testing
+- **Cost Optimization**: Usage tracking and optimization
+- **Performance Monitoring**: Latency and quality metrics
+
+#### Machine Learning Models
+- **Lead Scoring**: Predictive models for prospect qualification
+- **Personalization**: Recommendation engines for messaging
+- **Conversation Flow**: Decision trees for dialogue management
+- **Performance Optimization**: Reinforcement learning for improvement
+
+**Technology Stack:**
+- Portkey for LLM management
+- Python with modern ML frameworks
+- Vector databases for embeddings
+- Vercel Edge Functions for inference
+
+### Sales Engine
+**Business Logic and Automation**
+
+#### Workflow Management
+- **Campaign Orchestration**: Multi-channel outreach sequences
+- **Lead Routing**: Intelligent assignment to sales reps
+- **Follow-up Automation**: Scheduled and triggered communications
+- **Escalation Handling**: Human handoff protocols
+
+#### CRM Integration
+- **Data Synchronization**: Real-time bidirectional sync
+- **Field Mapping**: Flexible data transformation
+- **Webhook Processing**: Event-driven updates
+- **Conflict Resolution**: Automated data reconciliation
+
+**Technology Stack:**
+- Temporal for workflow orchestration
+- Node.js with Express framework
+- Upstash for caching and queues
+- Vercel Serverless Functions
+
+### Data Engine
+**Analytics and Intelligence**
+
+#### Real-Time Analytics
+- **Performance Dashboards**: Live metrics and KPIs
+- **Conversion Tracking**: Funnel analysis and attribution
+- **A/B Testing**: Experiment management and results
+- **Predictive Forecasting**: Revenue and pipeline predictions
+
+#### Data Processing
+- **ETL Pipelines**: Extract, transform, load operations
+- **Data Validation**: Quality checks and cleansing
+- **Aggregation**: Summary statistics and reporting
+- **Export/Import**: Data portability and backups
+
+**Technology Stack:**
+- Supabase for real-time analytics
+- ClickHouse for analytics database
+- Temporal for workflow orchestration
+- Grafana for visualization
+
+## Data Architecture
+
+### Primary Database
+**Supabase**
+- Real-time subscriptions
+- Row Level Security
+- Automated backups and point-in-time recovery
+- Connection pooling and query optimization
+- Horizontal scaling with read replicas
+
+### Caching Layer
+**Upstash Redis**
+- Serverless Redis implementation
+- Session storage and user state
+- Frequently accessed data caching
+- Real-time leaderboards and counters
+- Pub/sub for real-time notifications
+
+### Vector Database
+**Supabase Vector**
+- Semantic search capabilities
+- Embedding storage for AI models
+- Similarity matching for personalization
+- Fast retrieval for recommendation engines
+
+### Data Warehouse
+**Supabase Analytics**
+- Historical data storage and analysis
+- Complex analytical queries
+- Data science and ML training
+- Business intelligence reporting
+
+## Security Architecture
+
+### Network Security
+- **Cloudflare Protection**: DDoS mitigation and WAF
+- **Vercel Edge Security**: Global security network
+- **SSL/TLS Encryption**: End-to-end encryption
+- **Zero Trust Architecture**: Never trust, always verify
+
+### Application Security
+- **Supabase Auth**: Built-in authentication
+- **Role-Based Access Control**: Granular permissions
+- **API Security**: Rate limiting and input validation
+- **Secrets Management**: Encrypted credential storage
+
+### Data Security
+- **Encryption at Rest**: Database encryption
+- **Encryption in Transit**: TLS 1.3 for all communications
+- **Data Masking**: PII protection in non-production environments
+- **Audit Logging**: Comprehensive access and change tracking
+
+### Compliance
+- **SOC 2 Type II**: Security and availability controls
+- **GDPR Compliance**: Data privacy and user rights
+- **CCPA Compliance**: California consumer privacy
+- **HIPAA Ready**: Healthcare data protection capabilities
+
+## Scalability & Performance
+
+### Horizontal Scaling
+- **Serverless Architecture**: Automatic scaling
+- **Edge Computing**: Global distribution
+- **Load Balancing**: Traffic distribution
+- **Database Sharding**: Horizontal data partitioning
+
+### Performance Optimization
+- **Vercel Edge Network**: Global content delivery
+- **Upstash Caching**: Multi-level caching implementation
+- **Query Optimization**: Database performance tuning
+- **Async Processing**: Non-blocking operations
+
+### Monitoring & Observability
+- **Datadog**: Application monitoring and metrics
+- **Sentry**: Error tracking and performance monitoring
+- **Portkey**: LLM observability
+- **Cloudflare Analytics**: Edge performance metrics
+
+## Deployment & DevOps
+
+### Infrastructure as Code
+- **Vercel**: Platform deployment
+- **Supabase**: Database and authentication
+- **Temporal**: Workflow orchestration
+- **GitOps**: Git-based deployment workflows
+
+### CI/CD Pipeline
+- **Vercel**: Automated testing and deployment
+- **GitHub Actions**: CI/CD automation
+- **Docker**: Containerized applications
+- **Cloudflare**: Edge deployment
+
+### Environment Management
+- **Development**: Local and preview deployments
+- **Staging**: Production-like testing environment
+- **Production**: High-availability production deployment
+- **Disaster Recovery**: Multi-region backup and failover
+
+## Integration Architecture
+
+### CRM Integrations
+- **Salesforce**: Native API integration
+- **HubSpot**: Real-time data synchronization
+- **Pipedrive**: Bidirectional data flow
+- **Custom CRMs**: Flexible API adapters
+
+### Communication Channels
+- **Email**: SMTP and API-based sending
+- **LinkedIn**: Social selling automation
+- **Phone**: VoIP and SMS integration
+- **Slack/Teams**: Internal notifications
+
+### Third-Party Services
+- **Data Providers**: Lead enrichment services
+- **Analytics**: Datadog, Sentry
+- **Payment Processing**: Stripe, PayPal
+- **Support**: Zendesk, Intercom
+
+## Vendor Contracts & Infrastructure
+
+### Core Infrastructure
+| Service | Provider | Purpose | Contract Term |
+|---------|----------|---------|---------------|
+| Edge Computing | Vercel | Application hosting and edge functions | Annual |
+| Database | Supabase | Primary database and authentication | Annual |
+| Vector Database | Supabase | AI embeddings and semantic search | Annual |
+| Caching | Upstash | Redis caching and queues | Annual |
+| Workflow Engine | Temporal | Business process orchestration | Annual |
+
+### AI & ML Infrastructure
+| Service | Provider | Purpose | Contract Term |
+|---------|----------|---------|---------------|
+| LLM Management | Portkey | AI model orchestration and monitoring | Annual |
+| Vector Storage | Supabase | Embedding storage and retrieval | Annual |
+| Model Training | Vercel | Edge AI model deployment | Annual |
+| AI Analytics | Portkey | LLM performance monitoring | Annual |
+| LLM Hosting | Azure OpenAI | Primary LLM provider | Annual |
+| LLM Hosting | AWS Bedrock | Secondary LLM provider | Annual |
+| LLM Hosting | Google Vertex AI | Tertiary LLM provider | Annual |
+
+### Communication Infrastructure
+| Service | Provider | Purpose | Contract Term |
+|---------|----------|---------|---------------|
+| Messaging | Twilio | SMS and email delivery | Annual |
+| Authentication | Composio | Identity and access management | Annual |
+| CDN & Security | Cloudflare | DDoS protection and edge security | Annual |
+
+### Security & Monitoring
+| Service | Provider | Purpose | Contract Term |
+|---------|----------|---------|---------------|
+| CDN & Security | Cloudflare | DDoS protection and edge security | Annual |
+| Monitoring | Datadog | Application performance monitoring | Annual |
+| Error Tracking | Sentry | Error monitoring and debugging | Annual |
+| Analytics | Cloudflare | Edge performance metrics | Annual |
+
+### Key Terms
+- **Service Level Agreements**: 99.9% uptime guarantee
+- **Data Processing**: GDPR and CCPA compliant
+- **Security Standards**: SOC 2 Type II compliance
+- **Support Level**: 24/7 technical support
+- **Renewal Terms**: Annual review with 30-day notice
+- **Data Retention**: Configurable retention periods
+- **Backup Policy**: Daily automated backups
+- **Disaster Recovery**: Multi-region failover capability
+
+## Future Architecture Roadmap
+
+### Q1 2025
+- **Edge AI**: Deploy ML models at the edge
+- **GraphQL API**: More efficient data fetching
+- **Real-time Collaboration**: WebSocket-based features
+- **Advanced LLM**: Improved model orchestration
+
+### Q2 2025
+- **Multi-Region**: Global deployment for reduced latency
+- **Blockchain**: Immutable audit trails
+- **IoT Integration**: Connect with smart devices
+- **Voice AI**: Natural language voice interactions
+
+### Q3 2025
+- **Quantum-Ready**: Prepare for quantum computing
+- **AR/VR**: Immersive sales experiences
+- **5G Optimization**: Leverage high-speed mobile networks
+- **Autonomous Agents**: Self-improving AI systems 
