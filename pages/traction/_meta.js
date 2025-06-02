@@ -1,8 +1,17 @@
 export default {
   "index": "Overview",
   "key-metrics": "Key Metrics Overview",
-  "revenue-growth": "Revenue Growth",
+  "revenue-growth": {
+    "title": "Revenue Growth", 
+    "display": "hidden"
+  },
   "product-metrics": "Product Metrics",
-  "customer-metrics": "Customer Metrics",
-  "testimonials": "Customer Testimonials"
+  "customer-metrics": {
+    "title": "Customer Metrics", 
+    "display": "hidden"
+  },
+  "testimonials": {
+    "title": "Customer Testimonials", 
+    "display": "hidden"
+  }
 } 
