@@ -1,3 +1,5 @@
+import { NavigationCard } from '../../components/NavigationCard'
+
 # Financials & Investment Overview
 
 ## Strategic Pivot to AI-Powered Virtual Sales Employees
@@ -122,48 +124,49 @@
 
 ## Financial Sections
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-3">
-  <a href="/financials/financial-statements" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">📊 Financial Statements</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      September 2024 statements with pivot disclosure
-    </span>
-  </a>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <NavigationCard 
+    href="/financials/financial-statements" 
+    title="Financial Statements" 
+    description="September 2024 statements with pivot disclosure"
+    icon="📊"
+    featured={true}
+  />
   
-  <a href="/financials/projections" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">📈 Financial Projections</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      5-year model with revenue share dynamics
-    </span>
-  </a>
+  <NavigationCard 
+    href="/financials/projections" 
+    title="Financial Projections" 
+    description="5-year model with revenue share dynamics"
+    icon="📈"
+  />
   
-  <a href="/financials/unit-economics" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">💰 Unit Economics</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Detailed LTV/CAC analysis by plan
-    </span>
-  </a>
+  <NavigationCard 
+    href="/financials/unit-economics" 
+    title="Unit Economics" 
+    description="Detailed LTV/CAC analysis by plan"
+    icon="💰"
+  />
   
-  <a href="/financials/cap-table" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">🏛️ Cap Table</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Current ownership and dilution model
-    </span>
-  </a>
+  <NavigationCard 
+    href="/financials/cap-table" 
+    title="Cap Table" 
+    description="Current ownership and dilution model"
+    icon="🏛️"
+  />
   
-  <a href="/financials/fundraising" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">💼 Fundraising Details</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Seed round terms and timeline
-    </span>
-  </a>
+  <NavigationCard 
+    href="/financials/fundraising" 
+    title="Fundraising Details" 
+    description="Seed round terms and timeline"
+    icon="💼"
+  />
   
-  <a href="/financials/use-of-funds" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">🎯 Use of Funds</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Detailed allocation strategy
-    </span>
-  </a>
+  <NavigationCard 
+    href="/financials/use-of-funds" 
+    title="Use of Funds" 
+    description="Detailed allocation strategy"
+    icon="🎯"
+  />
 </div>
 
 ## Investment Highlights

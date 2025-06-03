@@ -1,3 +1,5 @@
+import { NavigationCard } from '../../components/NavigationCard'
+
 # Legal & Compliance Overview
 
 ## Corporate Structure & Governance
@@ -115,34 +117,35 @@ Market Fit maintains robust legal and compliance frameworks that support scalabl
 
 ## Legal Sections
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-2">
-  <a href="/legal/corporate-structure" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">🏢 Corporate Structure</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Detailed entity and ownership structure
-    </span>
-  </a>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <NavigationCard 
+    href="/legal/corporate-structure" 
+    title="Corporate Structure" 
+    description="Detailed entity and ownership structure"
+    icon="🏢"
+    featured={true}
+  />
   
-  <a href="/legal/intellectual-property" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">💡 Intellectual Property</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Patents, trademarks, and trade secrets
-    </span>
-  </a>
+  <NavigationCard 
+    href="/legal/intellectual-property" 
+    title="Intellectual Property" 
+    description="Patents, trademarks, and trade secrets"
+    icon="💡"
+  />
   
-  <a href="/legal/compliance" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">✅ Regulatory Compliance</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Certifications and compliance status
-    </span>
-  </a>
+  <NavigationCard 
+    href="/legal/compliance" 
+    title="Regulatory Compliance" 
+    description="Certifications and compliance status"
+    icon="✅"
+  />
   
-  <a href="/legal/data-privacy" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold">🔐 Data Privacy</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Privacy policies and data protection
-    </span>
-  </a>
+  <NavigationCard 
+    href="/legal/data-privacy" 
+    title="Data Privacy" 
+    description="Privacy policies and data protection"
+    icon="🔐"
+  />
 </div>
 
 ## Risk Management

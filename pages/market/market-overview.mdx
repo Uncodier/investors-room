@@ -1,3 +1,5 @@
+import { NavigationCard } from '../../components/NavigationCard'
+
 # Market & Competition Overview
 
 ## Executive Summary
@@ -279,9 +281,47 @@ Our moats are designed for long-term defensibility:
 
 Explore our detailed market analysis:
 
-- 📊 [Detailed Market Size Analysis →](/market/market-size)
-- 🎯 [Complete Customer Profiles →](/market/target-customers)
-- 🏆 [Competitive Analysis Deep Dive →](/market/competitive-landscape)
-- 💡 [Our Unique Differentiation →](/market/differentiation)
-- 🌍 [Global Expansion Strategy →](/market/expansion-strategy)
-- 📈 [Market Trends & Predictions →](/market/market-trends) 
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <NavigationCard 
+    href="/market/market-size" 
+    title="Market Size Analysis" 
+    description="Detailed TAM, SAM, SOM breakdown and projections"
+    icon="📊"
+    featured={true}
+  />
+  
+  <NavigationCard 
+    href="/market/target-customers" 
+    title="Customer Profiles" 
+    description="Complete target customer analysis and segments"
+    icon="🎯"
+  />
+  
+  <NavigationCard 
+    href="/market/competitive-landscape" 
+    title="Competitive Analysis" 
+    description="Deep dive into competitors and market positioning"
+    icon="🏆"
+  />
+  
+  <NavigationCard 
+    href="/market/differentiation" 
+    title="Our Differentiation" 
+    description="Unique value proposition and competitive advantages"
+    icon="💡"
+  />
+  
+  <NavigationCard 
+    href="/market/expansion-strategy" 
+    title="Expansion Strategy" 
+    description="Global expansion and growth plans"
+    icon="🌍"
+  />
+  
+  <NavigationCard 
+    href="/market/market-trends" 
+    title="Market Trends" 
+    description="Industry trends and future predictions"
+    icon="📈"
+  />
+</div> 

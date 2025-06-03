@@ -1,3 +1,5 @@
+import { NavigationCard } from '../../components/NavigationCard'
+
 # Additional Resources
 
 ## Supporting Documentation
@@ -6,54 +8,49 @@ Access comprehensive materials that provide deeper insights into Market Fit's jo
 
 ## Resource Categories
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-3">
-  <a href="/appendix/press" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-6 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <div className="nx-text-3xl nx-mb-3">📰</div>
-    <h3 className="nx-font-semibold nx-text-lg">Press & Media</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Media coverage, press releases, and industry recognition
-    </span>
-  </a>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <NavigationCard 
+    href="/appendix/press" 
+    title="Press & Media" 
+    description="Media coverage, press releases, and industry recognition"
+    icon="📰"
+    featured={true}
+  />
   
-  <a href="/appendix/research" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-6 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <div className="nx-text-3xl nx-mb-3">📊</div>
-    <h3 className="nx-font-semibold nx-text-lg">Market Research</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Industry reports, analyst coverage, and market studies
-    </span>
-  </a>
+  <NavigationCard 
+    href="/appendix/research" 
+    title="Market Research" 
+    description="Industry reports, analyst coverage, and market studies"
+    icon="📊"
+  />
   
-  <a href="/appendix/technical-docs" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-6 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <div className="nx-text-3xl nx-mb-3">🔧</div>
-    <h3 className="nx-font-semibold nx-text-lg">Technical Documentation</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Architecture diagrams, API docs, and security audits
-    </span>
-  </a>
+  <NavigationCard 
+    href="/appendix/technical-docs" 
+    title="Technical Documentation" 
+    description="Architecture diagrams, API docs, and security audits"
+    icon="🔧"
+  />
   
-  <a href="/appendix/customer-references" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-6 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <div className="nx-text-3xl nx-mb-3">💬</div>
-    <h3 className="nx-font-semibold nx-text-lg">Customer References</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Reference calls, case studies, and testimonials
-    </span>
-  </a>
+  <NavigationCard 
+    href="/appendix/customer-references" 
+    title="Customer References" 
+    description="Reference calls, case studies, and testimonials"
+    icon="💬"
+  />
   
-  <a href="/appendix/faq" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-6 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <div className="nx-text-3xl nx-mb-3">❓</div>
-    <h3 className="nx-font-semibold nx-text-lg">FAQ</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Answers to common investor questions
-    </span>
-  </a>
+  <NavigationCard 
+    href="/appendix/faq" 
+    title="FAQ" 
+    description="Answers to common investor questions"
+    icon="❓"
+  />
   
-  <a href="/appendix/contact" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-6 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <div className="nx-text-3xl nx-mb-3">📧</div>
-    <h3 className="nx-font-semibold nx-text-lg">Contact Information</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Key contacts for due diligence and questions
-    </span>
-  </a>
+  <NavigationCard 
+    href="/appendix/contact" 
+    title="Contact Information" 
+    description="Key contacts for due diligence and questions"
+    icon="📧"
+  />
 </div>
 
 ## Quick Downloads

@@ -1,3 +1,5 @@
+import { NavigationCard } from '../../components/NavigationCard'
+
 # Team & Organization Overview
 
 ## Industry Leaders in AI-Driven Business Solutions
@@ -70,34 +72,35 @@ We have been building tech for 15+ years, and focused in UX and AI Agents for th
 
 ## Team Sections
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-2">
-  <a href="/team/founders" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">👥 Founding Team</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Meet our visionary founders
-    </span>
-  </a>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <NavigationCard 
+    href="/team/founders" 
+    title="Founding Team" 
+    description="Meet our visionary founders"
+    icon="👥"
+    featured={true}
+  />
   
-  <a href="/team/leadership" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">🎯 Leadership Team</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Our executive leadership
-    </span>
-  </a>
+  <NavigationCard 
+    href="/team/leadership" 
+    title="Leadership Team" 
+    description="Our executive leadership"
+    icon="🎯"
+  />
   
-  <a href="/team/advisors" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">🧠 Advisory Board</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      500 Startups mentors & advisors
-    </span>
-  </a>
+  <NavigationCard 
+    href="/team/advisors" 
+    title="Advisory Board" 
+    description="500 Startups mentors & advisors"
+    icon="🧠"
+  />
   
-  <a href="/team/culture" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">🌟 Culture & Values</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      What makes us unique
-    </span>
-  </a>
+  <NavigationCard 
+    href="/team/culture" 
+    title="Culture & Values" 
+    description="What makes us unique"
+    icon="🌟"
+  />
 </div>
 
 ## Why Our Team Wins

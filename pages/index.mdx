@@ -1,40 +1,851 @@
-import { NavigationCard } from '../components/NavigationCard'
+import { NavigationCard, InvestmentHighlight, FeatureCard } from '../components/NavigationCard'
 
 # Welcome to Market Fit's Investor Data Room
 
 ## Building Virtual Sales Employees So People Can Focus on Being Human
 
-<div className="nx-mt-8 nx-rounded-lg nx-bg-gradient-to-r nx-from-primary-50 nx-to-primary-100 nx-p-8 dark:nx-from-primary-900/20 dark:nx-to-primary-800/20">
-  <h2 className="nx-text-3xl nx-font-bold nx-mb-4">Investment Highlights</h2>
+<style jsx>{`
+  .hero-section {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+  }
   
-  |**Round Size** | $2.5M Seed Round Target |
-  |---|---|
-  | **Product Highlights** | 3 Pending Patents + Open Source |
-  | **Market Interest** | 200+ Waitlist + 12 LOI |
-  | **Customer Retention** | 92% Retention Rate |
+  .investment-summary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .investment-summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+  }
+  
+  .investment-summary h2 {
+    color: white !important;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .about-data-room {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid #cbd5e0;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-data-room h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+  }
+  
+  .about-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .data-room-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .data-room-feature {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .data-room-feature:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+    border-color: #c3dafe;
+  }
+  
+  .feature-icon-large {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+  
+  .feature-type {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  .feature-description-large {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  .features-section {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+  
+  .features-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+  
+  .features-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .feature-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 2rem;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.15);
+    border-color: #c3dafe;
+  }
+  
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 0 4px 4px 0;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-card:hover::before {
+    transform: scaleY(1);
+  }
+  
+  .feature-icon {
+    font-size: 4rem;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    flex-shrink: 0;
+  }
+  
+  .feature-content {
+    flex: 1;
+  }
+  
+  .feature-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+  }
+  
+  .feature-description {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .navigation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+  }
+  
+  .navigation-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+  }
+  
+  .navigation-card::after {
+    content: '→';
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  .navigation-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .navigation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  .navigation-card:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .navigation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #667eea;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  }
+  
+  .navigation-card.featured {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.4), 0 4px 6px -2px rgba(102, 126, 234, 0.05);
+  }
+  
+  .navigation-card.featured::after {
+    color: white;
+  }
+  
+  .navigation-card.featured::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+  }
+  
+  .navigation-card.featured:hover {
+    box-shadow: 0 25px 50px -12px rgba(102, 126, 234, 0.5);
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+  }
+  
+  .navigation-card:hover .card-icon {
+    transform: scale(1.1);
+  }
+  
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+  
+  .navigation-card:hover .card-title {
+    color: #667eea;
+  }
+  
+  .navigation-card.featured .card-title {
+    color: white;
+  }
+  
+  .navigation-card.featured:hover .card-title {
+    color: white;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    opacity: 0.75;
+    margin: 0;
+    line-height: 1.6;
+    flex-grow: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .navigation-card:hover .card-description {
+    opacity: 0.9;
+  }
+  
+  .navigation-card.featured .card-description {
+    opacity: 0.9;
+  }
+  
+  .card-arrow {
+    display: none;
+  }
+  
+  .investment-highlights {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+  
+  .highlights-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .investment-highlight {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .investment-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+    border-color: #c3dafe;
+  }
+  
+  .investment-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .highlight-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .highlight-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+  }
+  
+  .highlight-description {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .contact-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid #cbd5e0;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 0 4px 4px;
+  }
+  
+  .contact-section h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+  
+  .contact-section p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .contact-links a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-links a:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-1px);
+  }
+  
+  .separator {
+    color: #cbd5e0;
+    font-weight: 400;
+  }
+  
+  @media (max-width: 768px) {
+    .navigation-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      padding: 0 0.5rem;
+    }
+    
+    .navigation-card {
+      min-height: 160px;
+      padding: 1.5rem;
+      border-radius: 16px;
+    }
+    
+    .navigation-card::after {
+      bottom: 1rem;
+      right: 1.5rem;
+      font-size: 1.25rem;
+    }
+    
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .card-content {
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .card-description {
+      font-size: 0.9rem;
+    }
+    
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .data-room-features {
+      grid-template-columns: 1fr;
+    }
+    
+    .feature-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+    }
+    
+    .feature-title {
+      font-size: 1.5rem;
+    }
+    
+    .feature-description {
+      font-size: 1rem;
+    }
+    
+    .investment-summary {
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .investment-summary h2 {
+      font-size: 1.5rem;
+    }
+    
+    .about-data-room {
+      padding: 2rem 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .about-data-room h2 {
+      font-size: 1.5rem;
+    }
+    
+    .about-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .features-section h2 {
+      font-size: 1.5rem;
+    }
+    
+    .features-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-links {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .separator {
+      display: none;
+    }
+  }
+  
+  :global(.dark) .navigation-card {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .navigation-card:hover {
+    border-color: #667eea;
+    background: #2d3748;
+  }
+  
+  :global(.dark) .feature-card {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .feature-card:hover {
+    border-color: #10b981;
+    background: #2d3748;
+  }
+  
+  :global(.dark) .feature-title {
+    color: #e2e8f0;
+  }
+  
+  .feature-content .feature-title,
+  .feature-content .feature-description {
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    .feature-content .feature-title,
+    .feature-content .feature-description {
+      text-align: center;
+    }
+  }
+  
+  :global(.dark) .feature-description {
+    color: #a0aec0;
+  }
+  
+  :global(.dark) .features-section h2 {
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .features-description {
+    color: #a0aec0;
+  }
+  
+  :global(.dark) .about-data-room {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .about-data-room h2 {
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .about-description {
+    color: #a0aec0;
+  }
+  
+  :global(.dark) .data-room-feature {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .data-room-feature:hover {
+    border-color: #667eea;
+    background: #2d3748;
+  }
+  
+  :global(.dark) .feature-type {
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .feature-description-large {
+    color: #a0aec0;
+  }
+  
+  :global(.dark) .investment-highlight {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .investment-highlight:hover {
+    border-color: #667eea;
+    background: #2d3748;
+  }
+  
+  :global(.dark) .highlight-title {
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .highlight-description {
+    color: #a0aec0;
+  }
+  
+  :global(.dark) .contact-section {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .contact-section h3 {
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .contact-section p {
+    color: #a0aec0;
+  }
+`}</style>
+
+<div className="hero-section">
+
+<div className="investment-summary">
+  <h2>Investment Highlights</h2>
+  
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>Round Size</strong></td>
+        <td>$2.5M Seed Round Target</td>
+      </tr>
+      <tr>
+        <td><strong>Product Highlights</strong></td>
+        <td>3 Pending Patents + Open Source</td>
+      </tr>
+      <tr>
+        <td><strong>Market Interest</strong></td>
+        <td>200+ Waitlist + 12 LOI</td>
+      </tr>
+      <tr>
+        <td><strong>Customer Retention</strong></td>
+        <td>92% Retention Rate</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-## About This Data Room
+</div>
 
+<div className="about-data-room">
+  <h2>About This Data Room</h2>
+  <p className="about-description">
 This comprehensive data room provides everything you need to evaluate Market Fit's Series A investment opportunity. We're revolutionizing sales with AI-powered virtual employees that handle the repetitive tasks, allowing human sales teams to focus on building relationships and closing deals.
+  </p>
+  
+  <div className="data-room-features">
+    <div className="data-room-feature">
+      <span className="feature-icon-large">📊</span>
+      <h4 className="feature-type">Complete Financial Analysis</h4>
+      <p className="feature-description-large">Detailed projections, unit economics, and growth metrics</p>
+    </div>
+    
+    <div className="data-room-feature">
+      <span className="feature-icon-large">🎯</span>
+      <h4 className="feature-type">Market Validation</h4>
+      <p className="feature-description-large">TAM analysis, customer traction, and competitive positioning</p>
+    </div>
+    
+    <div className="data-room-feature">
+      <span className="feature-icon-large">🚀</span>
+      <h4 className="feature-type">Technology Deep Dive</h4>
+      <p className="feature-description-large">AI platform architecture, patents, and technical roadmap</p>
+    </div>
+    
+    <div className="data-room-feature">
+      <span className="feature-icon-large">👥</span>
+      <h4 className="feature-type">Team & Leadership</h4>
+      <p className="feature-description-large">Founder profiles, advisory board, and organizational structure</p>
+    </div>
+  </div>
+</div>
 
-### What We Do
+<div className="features-section">
+  <h2>Your AI Powered Sales Team</h2>
+  <p className="features-description">
+    Experience seamless collaboration between AI agents and your team, with performance-based pricing that unleashes intelligent automation across every aspect of your sales process.
+  </p>
+  
+  <div className="features-grid">
+    <FeatureCard
+      icon="🧠"
+      title="Know"
+      description="Pre-trained AI agents with deep industry knowledge and proven sales strategies, ready to deploy immediately"
+    />
+    
+    <FeatureCard
+      icon="🎯"
+      title="Think"
+      description="Strategic analysis that transforms complex market data into actionable revenue opportunities within minutes"
+    />
+    
+    <FeatureCard
+      icon="⚡"
+      title="Do"
+      description="Execute personalized multi-channel campaigns across email, social media, and direct messaging automatically"
+    />
+  </div>
+</div>
 
-**"Hi, we're Market Fit. We build virtual sales employees so people can focus on being human."** Our AI-powered virtual sales employees bring sales out of the box to your business, handling:
-
-- 🤖 **Lead Qualification** - AI agents that qualify leads 24/7 with human-like conversations
-- 📧 **Automated Outreach** - Personalized email and messaging campaigns at scale
-- 📊 **Sales Intelligence** - Real-time insights and recommendations for human sales teams
-- 🔄 **Follow-up Automation** - Never miss a follow-up with intelligent sequence management
+<div className="hero-section">
 
 ## Quick Navigation
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-2 lg:nx-grid-cols-3">
+<div className="navigation-grid">
   <NavigationCard 
     href="/executive-summary" 
     title="Executive Summary" 
     description="Complete overview of the opportunity"
     icon="📋"
+    featured={true}
   />
   
   <NavigationCard 
@@ -73,82 +884,70 @@ This comprehensive data room provides everything you need to evaluate Market Fit
   />
 </div>
 
-## Why Invest in Market Fit
-
-<div className="nx-mt-8 nx-space-y-4">
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Strategic Assets</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">$610K in cloud credits eliminates infrastructure costs for 3-5 years</span>
-    </div>
   </div>
   
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Superior Unit Economics</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">28x LTV/CAC with sub-3 month payback period vs 3-5x industry standard</span>
-    </div>
-  </div>
+<div className="investment-highlights">
+  <h2 className="highlights-title">Why Invest in Market Fit</h2>
   
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Proven Product-Market Fit</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">92% retention rate with 135% net revenue retention growing to 172%</span>
-    </div>
-  </div>
-  
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Revolutionary Business Model</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Revenue share creates win-win customer relationships with aligned incentives</span>
-    </div>
-  </div>
-  
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">AI-First Technology Advantage</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">3 pending patents protecting core innovations in autonomous AI sales agents</span>
-    </div>
-  </div>
-  
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Clear Path to Profitability</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">EBITDA positive by Q3 2028 with only $15.5M total funding needed</span>
-    </div>
-  </div>
-  
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Founder-Led & Controlled</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">85% founder ownership ensures aligned incentives and long-term vision</span>
-    </div>
-  </div>
-  
-  <div className="nx-flex nx-items-start nx-gap-3">
-    <span className="nx-text-2xl">✅</span>
-    <div>
-      <h4 className="nx-font-semibold">Massive Market Opportunity</h4>
-      <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">$50B TAM in sales automation growing at 32% CAGR with early market entry</span>
-    </div>
+  <div className="highlights-grid">
+    <InvestmentHighlight
+      icon="💎"
+      title="Strategic Assets"
+      description="$610K in cloud credits eliminates infrastructure costs for 3-5 years"
+    />
+    
+    <InvestmentHighlight
+      icon="📊"
+      title="Superior Unit Economics"
+      description="28x LTV/CAC with sub-3 month payback period vs 3-5x industry standard"
+    />
+    
+    <InvestmentHighlight
+      icon="🎯"
+      title="Proven Product-Market Fit"
+      description="92% retention rate with 135% net revenue retention growing to 172%"
+    />
+    
+    <InvestmentHighlight
+      icon="🚀"
+      title="Revolutionary Business Model"
+      description="Revenue share creates win-win customer relationships with aligned incentives"
+    />
+    
+    <InvestmentHighlight
+      icon="🧠"
+      title="AI-First Technology Advantage"
+      description="3 pending patents protecting core innovations in autonomous AI sales agents"
+    />
+    
+    <InvestmentHighlight
+      icon="💰"
+      title="Clear Path to Profitability"
+      description="EBITDA positive by Q3 2028 with only $15.5M total funding needed"
+    />
+    
+    <InvestmentHighlight
+      icon="👥"
+      title="Founder-Led & Controlled"
+      description="85% founder ownership ensures aligned incentives and long-term vision"
+    />
+    
+    <InvestmentHighlight
+      icon="🌍"
+      title="Massive Market Opportunity"
+      description="$50B TAM in sales automation growing at 32% CAGR with early market entry"
+    />
   </div>
 </div>
 
 ## Contact Us
 
-<div className="nx-mt-8 nx-rounded-lg nx-bg-gray-50 nx-border nx-border-gray-200 nx-p-6 dark:nx-bg-gray-800 dark:nx-border-gray-700">
-  <h3 className="nx-text-lg nx-font-semibold nx-mb-2">Ready to Learn More?</h3>
-  <span className="nx-text-sm nx-mb-4">Our team is available to answer questions and provide additional information.</span>
-  <div className="nx-flex nx-gap-4">
-    <a href="mailto:investors@marketfit.io" className="nx-text-primary-600 hover:nx-underline">investors@marketfit.io</a>
-    <span className="nx-text-gray-400">|</span>
-    <a href="tel:+14155550100" className="nx-text-primary-600 hover:nx-underline">+1 (415) 555-0100</a>
+<div className="contact-section">
+  <h3>Ready to Learn More?</h3>
+  <p>Our team is available to answer questions and provide additional information.</p>
+  <div className="contact-links">
+    <a href="mailto:investors@marketfit.io">investors@marketfit.io</a>
+    <span className="separator">|</span>
+    <a href="tel:+14155550100">+1 (415) 555-0100</a>
   </div>
 </div> 

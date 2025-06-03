@@ -1,3 +1,5 @@
+import { NavigationCard } from '../../components/NavigationCard'
+
 # Company & Strategy Overview
 
 ## About Market Fit
@@ -8,34 +10,49 @@ Our platform brings sales automation out of the box to businesses of all sizes, 
 
 ## Quick Links
 
-<div className="nx-grid nx-grid-cols-1 nx-gap-4 nx-mt-6 md:nx-grid-cols-2">
-  <a href="/company/vision-mission" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">🎯 Vision & Mission</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Empowering sales teams with AI virtual employees
-    </span>
-  </a>
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <NavigationCard 
+    href="/company/vision-mission" 
+    title="Vision & Mission" 
+    description="Empowering sales teams with AI virtual employees"
+    icon="🎯"
+    featured={true}
+  />
   
-  <a href="/company/pitch-deck" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">📊 Pitch Deck</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Complete investor presentation
-    </span>
-  </a>
+  <NavigationCard 
+    href="/company/pitch-deck" 
+    title="Pitch Deck" 
+    description="Complete investor presentation"
+    icon="📊"
+  />
   
-  <a href="/company/business-model" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">💰 Business Model</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      Revenue share model aligned with client success
-    </span>
-  </a>
+  <NavigationCard 
+    href="/company/business-model" 
+    title="Business Model" 
+    description="Revenue share model aligned with client success"
+    icon="💰"
+  />
   
-  <a href="/company/roadmap" className="nx-block nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 nx-no-underline hover:nx-shadow-md nx-transition-shadow dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">🗺️ Product Roadmap</h3>
-    <span className="nx-mt-1 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      AI-powered sales automation timeline
-    </span>
-  </a>
+  <NavigationCard 
+    href="/company/roadmap" 
+    title="Product Roadmap" 
+    description="AI-powered sales automation timeline"
+    icon="🗺️"
+  />
+  
+  <NavigationCard 
+    href="/company/go-to-market" 
+    title="Go-to-Market" 
+    description="Strategic market entry and expansion plans"
+    icon="🚀"
+  />
+  
+  <NavigationCard 
+    href="/company/milestones" 
+    title="Key Milestones" 
+    description="Historical achievements and future targets"
+    icon="🏆"
+  />
 </div>
 
 ## Company Snapshot

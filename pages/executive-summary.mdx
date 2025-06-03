@@ -1,184 +1,962 @@
+import { InvestmentHighlight, MetricCard, FinancialCard, TimelineCard } from '../components/NavigationCard'
+
 # Executive Summary
 
-## The Opportunity
+<style jsx>{`
+  .executive-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+  
+  .hero-section h2 {
+    color: white !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .problem-card, .solution-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .problem-card h3, .solution-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+  }
+  
+  .problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a5568;
+    border-bottom: 1px solid #f7fafc;
+  }
+  
+  .problem-item:last-child {
+    border-bottom: none;
+  }
+  
+  .problem-icon {
+    color: #ef4444;
+    font-weight: 700;
+    margin-top: 0.125rem;
+  }
+  
+  .solution-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .solution-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4a5568;
+    border-bottom: 1px solid #f7fafc;
+  }
+  
+  .solution-item:last-child {
+    border-bottom: none;
+  }
+  
+  .solution-number {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+  
+  .metrics-section {
+    margin: 4rem 0;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .metric-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .metric-card.metric-blue {
+    border-color: #93c5fd;
+  }
+  
+  .metric-card.metric-blue:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 12px 32px -8px rgba(96, 165, 250, 0.3);
+  }
+  
+  .metric-card.metric-green {
+    border-color: #86efac;
+  }
+  
+  .metric-card.metric-green:hover {
+    border-color: #4ade80;
+    box-shadow: 0 12px 32px -8px rgba(74, 222, 128, 0.3);
+  }
+  
+  .metric-card.metric-purple {
+    border-color: #c4b5fd;
+  }
+  
+  .metric-card.metric-purple:hover {
+    border-color: #a78bfa;
+    box-shadow: 0 12px 32px -8px rgba(167, 139, 250, 0.3);
+  }
+  
+  .metric-card.metric-orange {
+    border-color: #fdba74;
+  }
+  
+  .metric-card.metric-orange:hover {
+    border-color: #fb923c;
+    box-shadow: 0 12px 32px -8px rgba(251, 146, 60, 0.3);
+  }
+  
+  .metric-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+  
+  .metric-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+  
+  .metric-trend {
+    font-size: 0.8rem;
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+  
+  .revenue-model {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid #cbd5e0;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+  }
+  
+  .revenue-model h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1a202c;
+  }
+  
+  .revenue-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .revenue-stream {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .revenue-percentage {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+  
+  .revenue-type {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+  }
+  
+  .revenue-description {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+  }
+  
+  .financial-projections {
+    margin: 4rem 0;
+  }
+  
+  .financial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .financial-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .financial-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+    border-color: #c3dafe;
+  }
+  
+  .financial-year {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+  
+  .financial-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .financial-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .financial-value {
+    font-weight: 700;
+    color: #1a202c;
+  }
+  
+  .financial-value.growth {
+    color: #10b981;
+  }
+  
+  .financial-label {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  .timeline-section {
+    margin: 4rem 0;
+  }
+  
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .timeline-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .timeline-card.completed {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #10b981;
+  }
+  
+  .timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .timeline-round {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+  }
+  
+  .timeline-amount {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #667eea;
+  }
+  
+  .timeline-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .timeline-timing {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+  
+  .timeline-purpose {
+    font-size: 0.875rem;
+    color: #4a5568;
+    line-height: 1.4;
+  }
+  
+  .timeline-valuation {
+    font-size: 0.875rem;
+    color: #667eea;
+    font-weight: 600;
+  }
+  
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .investment-highlight {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .investment-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+    border-color: #c3dafe;
+  }
+  
+  .investment-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .highlight-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .highlight-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+  }
+  
+  .highlight-description {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .contact-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+    color: white;
+    text-align: center;
+  }
+  
+  .contact-cta h3 {
+    color: white !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-cta p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .contact-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  .contact-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .problem-solution-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .metrics-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .revenue-streams {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .financial-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .timeline-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-section h2 {
+      font-size: 2rem;
+    }
+    
+    .hero-description {
+      font-size: 1rem;
+    }
+    
+    .contact-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  :global(.dark) .problem-card,
+  :global(.dark) .solution-card,
+  :global(.dark) .metric-card,
+  :global(.dark) .revenue-stream,
+  :global(.dark) .financial-card,
+  :global(.dark) .timeline-card,
+  :global(.dark) .investment-highlight {
+    background: #1a202c;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .problem-card h3,
+  :global(.dark) .solution-card h3,
+  :global(.dark) .metric-value,
+  :global(.dark) .revenue-type,
+  :global(.dark) .financial-value,
+  :global(.dark) .timeline-round,
+  :global(.dark) .highlight-title {
+    color: #e2e8f0;
+  }
+  
+  :global(.dark) .problem-item,
+  :global(.dark) .solution-item,
+  :global(.dark) .metric-label,
+  :global(.dark) .revenue-description,
+  :global(.dark) .financial-label,
+  :global(.dark) .timeline-purpose,
+  :global(.dark) .highlight-description {
+    color: #a0aec0;
+  }
+`}</style>
 
-Market Fit is building the future of sales through AI-powered virtual employees. We help companies scale their sales operations infinitely while allowing human salespeople to focus on what they do best: building relationships and closing deals.
+<div className="executive-container">
 
-### The Problem We Solve
+<div className="hero-section">
+  <h2>The Future of Sales is Here</h2>
+  <p className="hero-description">
+    Market Fit is building AI-powered virtual employees that scale sales operations infinitely while allowing human salespeople to focus on building relationships and closing deals.
+  </p>
+</div>
 
-- **87% of salespeople** waste time on activities that don't generate revenue
-- Companies lose **$1.5M annually** on inefficient sales processes
-- **65% of leads** never receive follow-up due to capacity constraints
-- Sales teams suffer from **+50% annual turnover**, losing institutional knowledge
-- Customer acquisition costs continue to increase while conversion rates decline
+<div className="problem-solution-grid">
+  <div className="problem-card">
+    <h3>The Problem We Solve</h3>
+    <ul className="problem-list">
+      <li className="problem-item">
+        <span className="problem-icon">✗</span>
+        <span><strong>87% of salespeople</strong> waste time on activities that don't generate revenue</span>
+      </li>
+      <li className="problem-item">
+        <span className="problem-icon">✗</span>
+        <span>Companies lose <strong>$1.5M annually</strong> on inefficient sales processes</span>
+      </li>
+      <li className="problem-item">
+        <span className="problem-icon">✗</span>
+        <span><strong>65% of leads</strong> never receive follow-up due to capacity constraints</span>
+      </li>
+      <li className="problem-item">
+        <span className="problem-icon">✗</span>
+        <span>Sales teams suffer from <strong>+50% annual turnover</strong>, losing institutional knowledge</span>
+      </li>
+      <li className="problem-item">
+        <span className="problem-icon">✗</span>
+        <span>Customer acquisition costs continue to increase while conversion rates decline</span>
+      </li>
+    </ul>
+  </div>
+  
+  <div className="solution-card">
+    <h3>Our Solution</h3>
+    <ul className="solution-list">
+      <li className="solution-item">
+        <span className="solution-number">1</span>
+        <span><strong>24/7 Lead Engagement</strong> - Virtual employees that never sleep, never take breaks</span>
+      </li>
+      <li className="solution-item">
+        <span className="solution-number">2</span>
+        <span><strong>Human-like Conversations</strong> - Natural language AI that builds genuine connections</span>
+      </li>
+      <li className="solution-item">
+        <span className="solution-number">3</span>
+        <span><strong>Infinite Scalability</strong> - Handle unlimited leads without hiring more staff</span>
+      </li>
+      <li className="solution-item">
+        <span className="solution-number">4</span>
+        <span><strong>Seamless Integration</strong> - Works alongside human teams, not replacing them</span>
+      </li>
+      <li className="solution-item">
+        <span className="solution-number">5</span>
+        <span><strong>Revenue Share Model</strong> - Complete incentive alignment with customer success</span>
+      </li>
+    </ul>
+  </div>
+</div>
 
-### Our Solution
+<div className="metrics-section">
+  <h2 className="section-title">Current Traction (Q4 2024)</h2>
+  
+  <div className="metrics-grid">
+    <MetricCard
+      value="200+"
+      label="Companies on Waitlist"
+      trend="12 LOIs signed"
+      color="blue"
+    />
+    
+    <MetricCard
+      value="92%"
+      label="Customer Retention Rate"
+      trend="Industry leading"
+      color="green"
+    />
+    
+    <MetricCard
+      value="3"
+      label="Pending Patents"
+      trend="Core AI innovations"
+      color="purple"
+    />
+    
+    <MetricCard
+      value="$610K"
+      label="Cloud Credits Secured"
+      trend="3-5 years coverage"
+      color="orange"
+    />
+    
+    <MetricCard
+      value="15+"
+      label="Beta Customers"
+      trend="Active testing phase"
+      color="green"
+    />
+    
+    <MetricCard
+      value="50+"
+      label="Years Combined Experience"
+      trend="Founding team"
+      color="blue"
+    />
+  </div>
+</div>
 
-Market Fit provides AI-powered virtual sales employees that:
+<div className="metrics-section">
+  <h2 className="section-title">Target Unit Economics (2025-2029)</h2>
+  
+  <div className="metrics-grid">
+    <MetricCard
+      value="28x"
+      label="LTV/CAC Ratio"
+      trend="Target: 125x by 2029"
+      color="blue"
+    />
+    
+    <MetricCard
+      value="$12,800"
+      label="Customer LTV"
+      trend="Growing to $35,000"
+      color="green"
+    />
+    
+    <MetricCard
+      value="82%"
+      label="Gross Margin"
+      trend="Target: 90% by 2029"
+      color="purple"
+    />
+    
+    <MetricCard
+      value="2.5mo"
+      label="Payback Period"
+      trend="Target: 1.2 months"
+      color="orange"
+    />
+    
+    <MetricCard
+      value="135%"
+      label="Net Revenue Retention"
+      trend="Target: 170% by 2029"
+      color="green"
+    />
+    
+    <MetricCard
+      value="$450"
+      label="Customer Acquisition Cost"
+      trend="Reducing to $280"
+      color="blue"
+    />
+  </div>
+</div>
 
-1. **24/7 Lead Engagement** - Virtual employees that never sleep, never take breaks
-2. **Human-like Conversations** - Natural language AI that builds genuine connections
-3. **Infinite Scalability** - Handle unlimited leads without hiring more staff
-4. **Seamless Integration** - Works alongside human teams, not replacing them
-5. **Revenue Share Model** - Complete incentive alignment with customer success
+<div className="revenue-model">
+  <h3>Innovative Revenue Model</h3>
+  <div className="revenue-streams">
+    <div className="revenue-stream">
+      <div className="revenue-percentage">45%</div>
+      <div className="revenue-type">Revenue Sharing</div>
+      <div className="revenue-description">Commission-based plans with perfect incentive alignment</div>
+    </div>
+    
+    <div className="revenue-stream">
+      <div className="revenue-percentage">30%</div>
+      <div className="revenue-type">SaaS Subscriptions</div>
+      <div className="revenue-description">Monthly recurring revenue from platform access</div>
+    </div>
+    
+    <div className="revenue-stream">
+      <div className="revenue-percentage">15%</div>
+      <div className="revenue-type">Campaign Investments</div>
+      <div className="revenue-description">Co-funding high-potential customer campaigns</div>
+    </div>
+    
+    <div className="revenue-stream">
+      <div className="revenue-percentage">10%</div>
+      <div className="revenue-type">Professional Services</div>
+      <div className="revenue-description">Implementation and optimization consulting</div>
+    </div>
+  </div>
+</div>
 
-## Innovative Business Model
+<div className="financial-projections">
+  <h2 className="section-title">5-Year Financial Projections</h2>
+  
+  <div className="financial-grid">
+    <FinancialCard
+      year="2025"
+      revenue="$0.5M"
+      customers="50"
+      arpu="$833"
+      gmv="$10M"
+    />
+    
+    <FinancialCard
+      year="2026"
+      revenue="$3.2M"
+      growth="540%"
+      customers="350"
+      arpu="$760"
+      gmv="$120M"
+    />
+    
+    <FinancialCard
+      year="2027"
+      revenue="$8.4M"
+      growth="163%"
+      customers="680"
+      arpu="$1,030"
+      gmv="$340M"
+    />
+    
+    <FinancialCard
+      year="2028"
+      revenue="$18.2M"
+      growth="117%"
+      customers="1,050"
+      arpu="$1,450"
+      gmv="$850M"
+    />
+    
+    <FinancialCard
+      year="2029"
+      revenue="$35M"
+      growth="92%"
+      customers="1,600"
+      arpu="$1,820"
+      gmv="$1.8B"
+    />
+  </div>
+</div>
 
-### Revenue Streams
+<div className="timeline-section">
+  <h2 className="section-title">Funding Timeline</h2>
+  
+  <div className="timeline-grid">
+    <TimelineCard
+      round="Pre-Seed"
+      amount="$350K"
+      timing="Completed"
+      purpose="MVP & validation"
+      valuation="$2M pre-money"
+      completed={true}
+    />
+    
+    <TimelineCard
+      round="Seed"
+      amount="$2.5M"
+      timing="Q4 2025"
+      purpose="Product & go-to-market"
+      valuation="$10M pre-money"
+    />
+    
+    <TimelineCard
+      round="Series A"
+      amount="$10M"
+      timing="Q3 2026"
+      purpose="Campaign fund & growth"
+      valuation="$40M pre-money"
+    />
+    
+    <TimelineCard
+      round="Series B"
+      amount="$25M"
+      timing="Q4 2027"
+      purpose="Scale & international"
+      valuation="$120M pre-money"
+    />
+  </div>
+</div>
 
-Our unique revenue share model creates perfect incentive alignment:
+<div className="metrics-section">
+  <h2 className="section-title">Investment Highlights</h2>
+  
+  <div className="highlights-grid">
+    <InvestmentHighlight
+      icon="🎯"
+      title="Proven Product-Market Fit"
+      description="92% customer retention with beta customers, 200+ companies on waitlist"
+    />
+    
+    <InvestmentHighlight
+      icon="🌍"
+      title="Massive Market Opportunity"
+      description="$50B TAM growing at 32% CAGR with early market entry advantage"
+    />
+    
+    <InvestmentHighlight
+      icon="🚀"
+      title="Scalable Go-to-Market"
+      description="Virtual employees selling virtual employees - infinite scalability"
+    />
+    
+    <InvestmentHighlight
+      icon="📊"
+      title="Strong Unit Economics Projections"
+      description="Target: 82% gross margins, 28x LTV/CAC ratio, 2.5 month payback"
+    />
+    
+    <InvestmentHighlight
+      icon="👥"
+      title="World-Class Team"
+      description="50+ years combined experience, 2 successful exits together"
+    />
+    
+    <InvestmentHighlight
+      icon="💡"
+      title="Innovative Revenue Model"
+      description="Revenue sharing perfectly aligns incentives with customer success"
+    />
+    
+    <InvestmentHighlight
+      icon="💎"
+      title="Strategic Assets"
+      description="$610K in cloud credits + 3 pending patents for core innovations"
+    />
+    
+    <InvestmentHighlight
+      icon="🧠"
+      title="Technology Advantage"
+      description="Proprietary AI with patent portfolio and human-like conversations"
+    />
+  </div>
+</div>
 
-- **Revenue Sharing** (45% of total revenue)
-  - Commissionist Plan: $0/month + 10% sales commission + 3% retention
-  - Startup Plan: $99/month + 5% sales commission + 1.5% retention
-  - Enterprise Plan: $499/month + 1% sales commission + capped annual fees
-- **SaaS Subscriptions** (30% of revenue)
-- **Campaign Investments** (15% of revenue) - We co-fund high-potential campaigns
-- **Professional Services** (10% of revenue)
+<div className="contact-cta">
+  <h3>Ready to Build the Future of Sales?</h3>
+  <p>We're looking for partners who share our vision of augmenting human potential with AI. This Seed round will fuel our expansion and help us build the sales force of the future.</p>
+  <div className="contact-buttons">
+    <a href="mailto:investors@marketfit.io" className="contact-button">
+      📧 Contact Investors
+    </a>
+    <a href="#" className="contact-button">
+      📅 Schedule a Call
+    </a>
+  </div>
+</div>
 
-### Exceptional Unit Economics
-
-- **CAC**: $450 (reducing to $280 by 2029)
-- **LTV**: $12,800 (growing to $35,000 by 2029)
-- **LTV/CAC Ratio**: 28x (target: 125x by 2029, industry benchmark: 3-5x)
-- **Gross Margin**: 82% (target: 90% by 2029)
-- **Payback Period**: 2.5 months (target: 1.2 months by 2029)
-- **NRR**: 135% (target: 170% by 2029)
-
-## Market Opportunity
-
-### Total Addressable Market (TAM)
-
-- **Global Sales Automation Market**: $50B by 2030
-- **Growth Rate**: 32% CAGR
-- **Our Serviceable Market (SAM)**: $5.2B
-- **Serviceable Obtainable Market (SOM)**: $2.6-3.1B
-
-### Target Segments
-
-1. **B2B SaaS Companies** (Primary) - 45% of market
-2. **Technology Companies** (Secondary) - 28% of market
-3. **Professional Services** (Tertiary) - 20% of market
-4. **Rest of World** - 7% of market
-
-## Traction & Growth
-
-### Key Metrics (Q4 2024)
-
-- **ARR**: $8.2M (growing 28% monthly)
-- **Customers**: 171+ active accounts
-- **Virtual Employees Deployed**: 2,500+
-- **Conversations Handled**: 10M+ monthly
-- **NRR**: 135%
-- **Churn**: Less than 0.3% monthly
-- **NPS**: 73 (vs. 30-50 industry average)
-- **Customer Retention Rate**: 96.8%
-
-### Notable Customers
-
-- Shopify
-- Slack
-- Zoom
-- HubSpot
-- Datadog
-
-### Measurable Customer Impact
-
-- **Lead Volume Increase**: 312% average improvement
-- **Lead-to-Customer Conversion Rate**: 9.5% (vs. 2-3% industry)
-- **Average Customer ROI**: 340% within 12 months
-- **Sales Cycle Reduction**: 43% faster
-- **Response Time**: 30 seconds (vs. 4 hours industry)
-
-## Competitive Advantage
-
-1. **Most Human-Like AI** - Proprietary conversational AI that passes the Turing test
-2. **True Automation** - Not just tools, but actual virtual employees
-3. **Network Effects** - AI improves with every conversation across our network
-4. **Revenue Share Model** - Complete incentive alignment with customer success
-5. **Patent Portfolio** - 3 granted, 5 pending on core AI algorithms
-
-## World-Class Team
-
-### Founders
-
-- **CEO**: Former VP Sales at Salesforce, scaled team from 50 to 500 people
-- **CTO**: Ex-Google AI, PhD in Natural Language Processing from MIT
-- **COO**: Previously scaled 3 SaaS companies to $100M+ ARR
-
-### Advisory Board
-
-- Former CRO of HubSpot
-- Chief AI Scientist at OpenAI
-- Partner at Sequoia Capital
-
-### Combined Experience
-
-- 10+ years working together across 20+ startups and industries
-- 2 startups sold together
-- 50+ years of combined experience
-- Focus on UX and AI Agents for the last 3 years
-
-## Financial Projections
-
-### 5-Year Growth Projection
-
-| Year | Revenue | Growth | Customers | ARPU/month | GMV Generated |
-|------|---------|--------|-----------|------------|---------------|
-| 2025 | $0.5M | - | 50 | $833 | $10M |
-| 2026 | $3.2M | 540% | 350 | $760 | $120M |
-| 2027 | $8.4M | 163% | 680 | $1,030 | $340M |
-| 2028 | $18.2M | 117% | 1,050 | $1,450 | $850M |
-| 2029 | $35M | 92% | 1,600 | $1,820 | $1.8B |
-
-### Efficiency Metrics (2029)
-
-- **Rule of 40**: 120 (92% growth + 10% EBITDA margin)
-- **Magic Number**: 2.0 (sales efficiency)
-- **Quick Ratio**: 4.2 (growth efficiency)
-- **Burn Multiple**: 0.24x (capital efficient)
-
-## Investment Opportunity
-
-### Current Funding Round
-
-- **Raising**: $2.5M Seed Round
-- **Pre-money Valuation**: $10M
-- **Use of Funds**:
-  - 40% - Campaign Financing for Top Performers
-  - 30% - Partner Network Development
-  - 20% - Go-to-Market
-  - 10% - Operations & Reserve
-
-### Funding Timeline
-
-| Round | Amount | Timing | Primary Use | Valuation |
-|-------|--------|--------|-------------|-----------|
-| Pre-Seed | $350K | Completed | MVP & validation | $2M pre |
-| Seed | $2.5M | Q1 2025 | Product & GTM | $10M pre |
-| Series A | $10M | Q3 2026 | Campaign fund & growth | $40M pre |
-| Series B | $25M | Q4 2027 | Scale & international | $120M pre |
-
-### Investment Highlights
-
-✅ **Proven Product-Market Fit** - 96.8% customer retention, 135% NRR
-
-✅ **Massive Market** - $50B TAM growing at 32% CAGR
-
-✅ **Scalable Go-to-Market** - Virtual employees selling virtual employees
-
-✅ **Strong Unit Economics** - 82% gross margins, 28x LTV/CAC
-
-✅ **World-Class Team** - Experienced founders with deep domain expertise
-
-✅ **Innovative Revenue Model** - Revenue sharing perfectly aligns incentives
-
-✅ **Demonstrated Traction** - $8.2M ARR with 28% monthly growth
-
-✅ **Technology Advantage** - Proprietary AI with patent portfolio
-
-## Next Steps
-
-We're looking for partners who share our vision of augmenting human potential with AI. This Seed round will fuel our expansion and help us build the sales force of the future.
-
-**Contact**: <span>investors@marketfit.io</span> | Schedule a call: [calendly.com/marketfit-investors]() 
+</div> 
