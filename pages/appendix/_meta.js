@@ -1,5 +1,8 @@
 export default {
-  "index": "Overview",
+  "index": {
+    "title": "Additional Resources",
+    "display": "hidden"
+  },
   "press": {
     "title": "Press & Media", 
     "display": "hidden"
@@ -12,7 +15,6 @@ export default {
   "customer-references": "Customer References",
   "faq": "Frequently Asked Questions",
   "contact": {
-    "title": "Contact Information", 
-    "display": "hidden"
+    "title": "Contact Information"
   }
 } 

@@ -1,4 +1,5 @@
 export default {
+  "index": "Market Opportunity",
   "market-overview": "Market Overview",
   "market-size": "Market Size & Opportunity",
   "target-customers": "Target Customers",

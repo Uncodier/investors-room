@@ -1,5 +1,43 @@
 import { NavigationCard } from '../../components/NavigationCard'
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 # Additional Resources
 
 ## Supporting Documentation
@@ -80,16 +118,48 @@ Access comprehensive materials that provide deeper insights into Market Fit's jo
 ## External Validation
 
 ### Industry Recognition
-- **Gartner Cool Vendor** - Recognized in 2024 report
-- **Forrester Wave** - Leader in Experimentation Platforms
-- **G2 Leader** - Highest rated in category
-- **Product Hunt** - #1 Product of the Day
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>🏆 Gartner Cool Vendor</strong></td>
+      <td>Recognized in 2024 report</td>
+    </tr>
+    <tr>
+      <td><strong>📊 Forrester Wave</strong></td>
+      <td>Leader in Experimentation Platforms</td>
+    </tr>
+    <tr>
+      <td><strong>⭐ G2 Leader</strong></td>
+      <td>Highest rated in category</td>
+    </tr>
+    <tr>
+      <td><strong>🚀 Product Hunt</strong></td>
+      <td>#1 Product of the Day</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Media Coverage
-- TechCrunch: "The Future of Product Validation"
-- Forbes: "AI Startup to Watch in 2024"
-- VentureBeat: "How Market Fit is Revolutionizing A/B Testing"
-- The Information: "Inside Market Fit's Rapid Growth"
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>TechCrunch</strong></td>
+      <td>"The Future of Product Validation"</td>
+    </tr>
+    <tr>
+      <td><strong>Forbes</strong></td>
+      <td>"AI Startup to Watch in 2024"</td>
+    </tr>
+    <tr>
+      <td><strong>VentureBeat</strong></td>
+      <td>"How Market Fit is Revolutionizing A/B Testing"</td>
+    </tr>
+    <tr>
+      <td><strong>The Information</strong></td>
+      <td>"Inside Market Fit's Rapid Growth"</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Analyst Reports
 - Gartner: Market Guide for Experimentation Platforms

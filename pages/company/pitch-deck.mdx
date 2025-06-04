@@ -1,5 +1,43 @@
 # Pitch Deck
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 ## Market Fit Investor Presentation
 
 <div className="nx-mt-6 nx-rounded-lg nx-bg-yellow-50 nx-border nx-border-yellow-200 nx-p-4 dark:nx-bg-yellow-900/20 dark:nx-border-yellow-800">
@@ -110,45 +148,64 @@ Our pitch deck covers:
 
 ### Traction Highlights
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-2 nx-gap-4 md:nx-grid-cols-4">
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">$350K</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Previous Funding</div>
-  </div>
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">15</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Active Beta Companies</div>
-  </div>
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">200+</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Waitlist Companies</div>
-  </div>
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">400%</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Engagement Improvement</div>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Previous Funding</strong></td>
+      <td>$350K</td>
+    </tr>
+    <tr>
+      <td><strong>Active Beta Companies</strong></td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td><strong>Waitlist Companies</strong></td>
+      <td>200+</td>
+    </tr>
+    <tr>
+      <td><strong>Engagement Improvement</strong></td>
+      <td>400%</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Key Metrics
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-2">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold nx-mb-2">💰 Revenue Pipeline</h4>
-    <ul className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-space-y-1">
-      <li>• $850K secured in commitments toward $2.5M seed round</li>
-      <li>• 12 signed LOIs from committed future customers</li>
-      <li>• Projected $3M ARR within 18 months</li>
-    </ul>
-  </div>
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold nx-mb-2">🏢 Enterprise Traction</h4>
-    <ul className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-space-y-1">
-      <li>• 5 enterprise pilot discussions active</li>
-      <li>• Average target: 200+ sales reps per client</li>
-      <li>• General release in 45 days</li>
-    </ul>
-  </div>
-</div>
+#### 💰 Revenue Pipeline
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Advanced Commitments</strong></td>
+      <td>$850K toward $2.5M seed round</td>
+    </tr>
+    <tr>
+      <td><strong>Signed LOIs</strong></td>
+      <td>12 committed future customers</td>
+    </tr>
+    <tr>
+      <td><strong>Projected ARR (18 months)</strong></td>
+      <td>$3M</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 🏢 Enterprise Traction
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Enterprise Pilot Discussions</strong></td>
+      <td>5 active discussions</td>
+    </tr>
+    <tr>
+      <td><strong>Average Target Sales Reps</strong></td>
+      <td>200+ per client</td>
+    </tr>
+    <tr>
+      <td><strong>General Release</strong></td>
+      <td>45 days</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Interactive Presentation
 

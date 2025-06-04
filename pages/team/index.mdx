@@ -1,5 +1,43 @@
 import { NavigationCard } from '../../components/NavigationCard'
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 # Team & Organization Overview
 
 ## Industry Leaders in AI-Driven Business Solutions
@@ -8,58 +46,87 @@ We have been building tech for 15+ years, and focused in UX and AI Agents for th
 
 ## Quick Team Stats
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-2 nx-gap-4 md:nx-grid-cols-4">
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">15+</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Years Building Tech</div>
-  </div>
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">3</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Years in AI & UX</div>
-  </div>
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">1000s</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Companies Helped</div>
-  </div>
-  <div className="nx-text-center">
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">91+</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Projects Delivered</div>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Years Building Tech</strong></td>
+      <td>15+ years of technology development experience</td>
+    </tr>
+    <tr>
+      <td><strong>AI & UX Specialization</strong></td>
+      <td>3 years focused exclusively on AI Agents and UX</td>
+    </tr>
+    <tr>
+      <td><strong>Companies Helped</strong></td>
+      <td>1000s of businesses transformed through our solutions</td>
+    </tr>
+    <tr>
+      <td><strong>Projects Delivered</strong></td>
+      <td>91+ successful projects completed</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Leadership Team Highlights
 
 ### Executive Experience
-- **15+ years** building cutting-edge technology
-- **3 years** specialized in UX and AI Agents
-- **2 multi-million dollar exits** in our network
-- **500 Startups backed** portfolio company
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Technology Experience</strong></td>
+      <td>15+ years building cutting-edge technology</td>
+    </tr>
+    <tr>
+      <td><strong>AI & UX Specialization</strong></td>
+      <td>3 years specialized in UX and AI Agents</td>
+    </tr>
+    <tr>
+      <td><strong>Multi-Million Dollar Exits</strong></td>
+      <td>2 successful exits in our network</td>
+    </tr>
+    <tr>
+      <td><strong>500 Startups Portfolio</strong></td>
+      <td>Backed by leading accelerator program</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Domain Expertise
-- Industry leaders in **AI-driven business solutions**
-- Deep expertise in **UX Design** and **AI Agents**
-- Proven track record in **Business Analytics** and **Experimentation**
-- Helped **thousands** transform data into strategic advantages
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>AI-Driven Business Solutions</strong></td>
+      <td>Industry leaders in artificial intelligence applications</td>
+    </tr>
+    <tr>
+      <td><strong>UX Design & AI Agents</strong></td>
+      <td>Deep expertise in user experience and AI automation</td>
+    </tr>
+    <tr>
+      <td><strong>Business Analytics</strong></td>
+      <td>Proven track record in experimentation and analytics</td>
+    </tr>
+    <tr>
+      <td><strong>Strategic Transformation</strong></td>
+      <td>Helped thousands transform data into strategic advantages</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Founding Team
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-2">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">Sergio Prado</h3>
-    <span className="nx-text-sm nx-text-primary-600">CEO & Co-Founder</span>
-    <p className="nx-mt-2 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      20+ years experience, AI & UX pioneer
-    </p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h3 className="nx-font-semibold nx-text-lg">Alejandra Barragán</h3>
-    <span className="nx-text-sm nx-text-primary-600">COO & Co-Founder</span>
-    <p className="nx-mt-2 nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">
-      11+ years scaling AI-driven operations
-    </p>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Sergio Prado - CEO & Co-Founder</strong></td>
+      <td>20+ years experience, AI & UX pioneer</td>
+    </tr>
+    <tr>
+      <td><strong>Alejandra Barragán - COO & Co-Founder</strong></td>
+      <td>11+ years scaling startups operations</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Our Mission
 

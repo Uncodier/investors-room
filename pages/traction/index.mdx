@@ -1,55 +1,131 @@
 # Traction & Metrics Overview
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 ## Growth at a Glance
 
 Market Fit has experienced exceptional growth since launch, validating our product-market fit and demonstrating strong customer demand for AI-powered experimentation.
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-1 nx-gap-6 md:nx-grid-cols-3">
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-green-50 nx-to-green-100 nx-p-6 dark:nx-from-green-900/20 dark:nx-to-green-800/20">
-    <div className="nx-text-4xl nx-font-bold nx-text-green-700 dark:nx-text-green-400">$2.5M</div>
-    <div className="nx-mt-1 nx-text-sm nx-font-medium nx-text-green-600 dark:nx-text-green-500">Annual Recurring Revenue</div>
-    <div className="nx-mt-2 nx-text-xs nx-text-green-600 dark:nx-text-green-500">↑ 25% MoM Growth</div>
-  </div>
-  
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-blue-50 nx-to-blue-100 nx-p-6 dark:nx-from-blue-900/20 dark:nx-to-blue-800/20">
-    <div className="nx-text-4xl nx-font-bold nx-text-blue-700 dark:nx-text-blue-400">142%</div>
-    <div className="nx-mt-1 nx-text-sm nx-font-medium nx-text-blue-600 dark:nx-text-blue-500">Net Revenue Retention</div>
-    <div className="nx-mt-2 nx-text-xs nx-text-blue-600 dark:nx-text-blue-500">Top quartile for SaaS</div>
-  </div>
-  
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-purple-50 nx-to-purple-100 nx-p-6 dark:nx-from-purple-900/20 dark:nx-to-purple-800/20">
-    <div className="nx-text-4xl nx-font-bold nx-text-purple-700 dark:nx-text-purple-400">72</div>
-    <div className="nx-mt-1 nx-text-sm nx-font-medium nx-text-purple-600 dark:nx-text-purple-500">Net Promoter Score</div>
-    <div className="nx-mt-2 nx-text-xs nx-text-purple-600 dark:nx-text-purple-500">World-class rating</div>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>💰 Annual Recurring Revenue</strong></td>
+      <td>$2.5M (↑ 25% MoM Growth)</td>
+    </tr>
+    <tr>
+      <td><strong>📈 Net Revenue Retention</strong></td>
+      <td>142% (Top quartile for SaaS)</td>
+    </tr>
+    <tr>
+      <td><strong>😊 Net Promoter Score</strong></td>
+      <td>72 (World-class rating)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Key Performance Indicators
 
 ### Revenue Metrics
-
-| Metric | Current | 6 Months Ago | Growth |
-|--------|---------|--------------|--------|
-| MRR | $208K | $52K | 300% |
-| ARR | $2.5M | $624K | 301% |
-| Average ACV | $5,000 | $3,500 | 43% |
-| Enterprise ACV | $60,000 | $45,000 | 33% |
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>MRR</strong></td>
+      <td>$208K (↑300% vs 6 months ago)</td>
+    </tr>
+    <tr>
+      <td><strong>ARR</strong></td>
+      <td>$2.5M (↑301% vs 6 months ago)</td>
+    </tr>
+    <tr>
+      <td><strong>Average ACV</strong></td>
+      <td>$5,000 (↑43% vs 6 months ago)</td>
+    </tr>
+    <tr>
+      <td><strong>Enterprise ACV</strong></td>
+      <td>$60,000 (↑33% vs 6 months ago)</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Customer Metrics
-
-| Metric | Current | Target | Status |
-|--------|---------|--------|--------|
-| Total Customers | 500+ | 450 | ✅ Exceeded |
-| Enterprise Logos | 85 | 75 | ✅ Exceeded |
-| Monthly Churn | 0.8% | Less than 2% | ✅ On Track |
-| Customer Lifetime | 125 months | 100 months | ✅ Exceeded |
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Total Customers</strong></td>
+      <td>500+ (✅ Exceeded target of 450)</td>
+    </tr>
+    <tr>
+      <td><strong>Enterprise Logos</strong></td>
+      <td>85 (✅ Exceeded target of 75)</td>
+    </tr>
+    <tr>
+      <td><strong>Monthly Churn</strong></td>
+      <td>0.8% (✅ Below 2% target)</td>
+    </tr>
+    <tr>
+      <td><strong>Customer Lifetime</strong></td>
+      <td>125 months (✅ Exceeded 100 month target)</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Product Usage Metrics
-
-- **10M+** experiments run on platform
-- **2.5B** data points analyzed monthly
-- **85%** daily active usage rate
-- **3.2x** average experiments per customer (monthly)
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Experiments Run</strong></td>
+      <td>10M+ experiments on platform</td>
+    </tr>
+    <tr>
+      <td><strong>Data Points Analyzed</strong></td>
+      <td>2.5B data points monthly</td>
+    </tr>
+    <tr>
+      <td><strong>Daily Active Usage</strong></td>
+      <td>85% daily usage rate</td>
+    </tr>
+    <tr>
+      <td><strong>Experiments per Customer</strong></td>
+      <td>3.2x average monthly experiments</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Growth Trajectory
 

@@ -1,5 +1,43 @@
 import { NavigationCard } from '../../components/NavigationCard'
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 # Financials & Investment Overview
 
 ## Strategic Pivot to AI-Powered Virtual Sales Employees
@@ -12,31 +50,26 @@ import { NavigationCard } from '../../components/NavigationCard'
 
 ## Current Financial Position
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-6 md:nx-grid-cols-4">
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-blue-50 nx-to-blue-100 nx-p-4 dark:nx-from-blue-900/20 dark:nx-to-blue-800/20">
-    <div className="nx-text-2xl nx-font-bold nx-text-blue-700 dark:nx-text-blue-400">$641,858</div>
-    <div className="nx-text-sm nx-text-blue-600 dark:nx-text-blue-500">Total Assets</div>
-    <div className="nx-text-xs nx-text-blue-600 dark:nx-text-blue-500 nx-mt-1">95% Digital Infrastructure</div>
-  </div>
-  
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-green-50 nx-to-green-100 nx-p-4 dark:nx-from-green-900/20 dark:nx-to-green-800/20">
-    <div className="nx-text-2xl nx-font-bold nx-text-green-700 dark:nx-text-green-400">$610,542</div>
-    <div className="nx-text-sm nx-text-green-600 dark:nx-text-green-500">Cloud Credits</div>
-    <div className="nx-text-xs nx-text-green-600 dark:nx-text-green-500 nx-mt-1">3-5 year runway</div>
-  </div>
-  
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-purple-50 nx-to-purple-100 nx-p-4 dark:nx-from-purple-900/20 dark:nx-to-purple-800/20">
-    <div className="nx-text-2xl nx-font-bold nx-text-purple-700 dark:nx-text-purple-400">$2.5M</div>
-    <div className="nx-text-sm nx-text-purple-600 dark:nx-text-purple-500">Seed Round</div>
-    <div className="nx-text-xs nx-text-purple-600 dark:nx-text-purple-500 nx-mt-1">Q1 2025 Target</div>
-  </div>
-  
-  <div className="nx-rounded-lg nx-bg-gradient-to-br nx-from-amber-50 nx-to-amber-100 nx-p-4 dark:nx-from-amber-900/20 dark:nx-to-amber-800/20">
-    <div className="nx-text-2xl nx-font-bold nx-text-amber-700 dark:nx-text-amber-400">85%</div>
-    <div className="nx-text-sm nx-text-amber-600 dark:nx-text-amber-500">Founder Control</div>
-    <div className="nx-text-xs nx-text-amber-600 dark:nx-text-amber-500 nx-mt-1">Post-seed: 76.5%</div>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>💰 Total Assets</strong></td>
+      <td>$641,858 (95% Digital Infrastructure)</td>
+    </tr>
+    <tr>
+      <td><strong>☁️ Cloud Credits</strong></td>
+      <td>$610,542 (3-5 year runway)</td>
+    </tr>
+    <tr>
+      <td><strong>🎯 Seed Round Target</strong></td>
+      <td>$2.5M (Q1 2025)</td>
+    </tr>
+    <tr>
+      <td><strong>🏛️ Founder Control</strong></td>
+      <td>85% (Post-seed: 76.5%)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Financial Projections Summary
 

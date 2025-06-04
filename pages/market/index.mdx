@@ -1,5 +1,43 @@
 import { NavigationCard } from '../../components/NavigationCard'
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 # Market Opportunity
 
 ## $50B TAM in Sales Automation Growing at 32% CAGR
@@ -8,27 +46,58 @@ The sales automation market represents one of the largest and fastest-growing op
 
 ## Market Size & Growth
 
-The global sales automation market is experiencing explosive growth, driven by digital transformation and the need for scalable sales solutions:
-
-- **Total Addressable Market (TAM)**: $50B by 2025
-- **Compound Annual Growth Rate (CAGR)**: 32%
-- **Serviceable Addressable Market (SAM)**: $12B
-- **Serviceable Obtainable Market (SOM)**: $1.2B
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Total Addressable Market (TAM)</strong></td>
+      <td>$50B by 2025</td>
+    </tr>
+    <tr>
+      <td><strong>Compound Annual Growth Rate (CAGR)</strong></td>
+      <td>32% annual growth</td>
+    </tr>
+    <tr>
+      <td><strong>Serviceable Addressable Market (SAM)</strong></td>
+      <td>$12B</td>
+    </tr>
+    <tr>
+      <td><strong>Serviceable Obtainable Market (SOM)</strong></td>
+      <td>$1.2B</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Market Dynamics
 
-### 📈 **Key Growth Drivers**
-- Increasing need for sales efficiency and productivity
-- Rising customer acquisition costs requiring better conversion
-- Remote work driving demand for digital sales tools
-- AI/ML advances making conversational AI viable
-- Performance-based pricing models gaining acceptance
-
-### 🎯 **Market Trends**
-- Shift from human-only to human-AI hybrid sales teams
-- Growing acceptance of AI in customer-facing roles
-- Demand for 24/7 customer engagement capabilities
-- Focus on measurable ROI and performance metrics
+### Key Growth Drivers & Market Trends
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>📈 Sales Efficiency Need</strong></td>
+      <td>Increasing need for sales efficiency and productivity</td>
+    </tr>
+    <tr>
+      <td><strong>💰 Rising CAC</strong></td>
+      <td>Rising customer acquisition costs requiring better conversion</td>
+    </tr>
+    <tr>
+      <td><strong>🏠 Remote Work</strong></td>
+      <td>Remote work driving demand for digital sales tools</td>
+    </tr>
+    <tr>
+      <td><strong>🤖 AI/ML Advances</strong></td>
+      <td>AI/ML advances making conversational AI viable</td>
+    </tr>
+    <tr>
+      <td><strong>💳 Performance Pricing</strong></td>
+      <td>Performance-based pricing models gaining acceptance</td>
+    </tr>
+    <tr>
+      <td><strong>🔄 Human-AI Teams</strong></td>
+      <td>Shift from human-only to human-AI hybrid sales teams</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Market Analysis
 
@@ -86,34 +155,49 @@ The global sales automation market is experiencing explosive growth, driven by d
 
 ## Competitive Landscape
 
-### 🥇 **Market Leaders**
-- **Salesforce**: CRM platform with basic automation ($26B revenue)
-- **HubSpot**: Inbound marketing and sales platform ($1.3B revenue)
-- **Outreach**: Sales engagement platform ($200M ARR)
-- **SalesLoft**: Sales engagement and intelligence ($100M ARR)
+### Market Leaders
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>🥇 Salesforce</strong></td>
+      <td>CRM platform with basic automation ($26B revenue)</td>
+    </tr>
+    <tr>
+      <td><strong>🚀 HubSpot</strong></td>
+      <td>Inbound marketing and sales platform ($1.3B revenue)</td>
+    </tr>
+    <tr>
+      <td><strong>📊 Outreach</strong></td>
+      <td>Sales engagement platform ($200M ARR)</td>
+    </tr>
+    <tr>
+      <td><strong>⚡ SalesLoft</strong></td>
+      <td>Sales engagement and intelligence ($100M ARR)</td>
+    </tr>
+  </tbody>
+</table>
 
-### 🎯 **Our Advantage**
+### 🎯 Our Advantage
 Unlike existing solutions that focus on workflow automation, Market Fit provides true AI sales employees that can hold natural conversations and make intelligent decisions, representing a fundamental breakthrough in sales automation.
 
 ## Target Market Segments
 
-### 🏢 **Primary Market: Mid-Market B2B Companies**
-- **Size**: 100-1,000 employees
-- **Revenue**: $10M-$100M annually
-- **Characteristics**: High growth, tech-savvy, performance-focused
-- **Pain Points**: Scaling sales without proportional cost increases
-
-### 🚀 **Secondary Market: High-Growth Startups**
-- **Size**: 50-500 employees
-- **Revenue**: $5M-$50M annually
-- **Characteristics**: Limited resources, aggressive growth targets
-- **Pain Points**: Need to punch above their weight in sales capacity
-
-### 🏭 **Tertiary Market: Enterprise Sales Teams**
-- **Size**: 1,000+ employees
-- **Revenue**: $100M+ annually
-- **Characteristics**: Complex sales processes, multiple stakeholders
-- **Pain Points**: Maintaining personal touch at scale
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>🏢 Mid-Market B2B Companies</strong></td>
+      <td>100-1,000 employees | $10M-$100M revenue | High growth, tech-savvy</td>
+    </tr>
+    <tr>
+      <td><strong>🚀 High-Growth Startups</strong></td>
+      <td>50-500 employees | $5M-$50M revenue | Limited resources, aggressive targets</td>
+    </tr>
+    <tr>
+      <td><strong>🏭 Enterprise Sales Teams</strong></td>
+      <td>1,000+ employees | $100M+ revenue | Complex processes, multiple stakeholders</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Market Entry Strategy
 

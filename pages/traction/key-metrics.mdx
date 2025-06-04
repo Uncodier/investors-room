@@ -1,5 +1,43 @@
 # Key Performance Metrics
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 <div className="nx-mt-4 nx-mb-8 nx-rounded-lg nx-bg-amber-50 nx-border nx-border-amber-200 nx-p-4 dark:nx-bg-amber-900/20 dark:nx-border-amber-800">
   <p className="nx-text-sm nx-text-amber-800 dark:nx-text-amber-200">
     <strong>⚠️ Disclaimer:</strong> The metrics and projections presented in this section are forecasts and targets based on initial experiments and preliminary market data. Actual results may vary significantly based on market conditions, product adoption, and other external factors. These projections should be considered as strategic objectives subject to continuous review.
@@ -13,40 +51,70 @@ Market Fit has demonstrated exceptional growth and product-market fit through ke
 ## Financial Metrics
 
 ### Revenue Performance
-**Strong Growth Trajectory**
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>💰 Current ARR</strong></td>
+      <td>$8.2M (340% YoY growth)</td>
+    </tr>
+    <tr>
+      <td><strong>📈 Monthly Growth</strong></td>
+      <td>28% average monthly growth</td>
+    </tr>
+    <tr>
+      <td><strong>🎯 Target 2025</strong></td>
+      <td>$25M ARR</td>
+    </tr>
+    <tr>
+      <td><strong>🔄 Recurring Revenue</strong></td>
+      <td>98% predictable revenue</td>
+    </tr>
+  </tbody>
+</table>
 
-#### Annual Recurring Revenue (ARR)
-- **Current ARR**: $8.2M (as of Q4 2024)
-- **Growth Rate**: 340% year-over-year
-- **Monthly Growth**: 28% average monthly growth
-- **Target 2025**: $25M ARR
-
-#### Revenue Composition
-- **Subscription Revenue**: 92% of total revenue
-- **Professional Services**: 6% of total revenue
-- **Partner Revenue**: 2% of total revenue
-- **Recurring Revenue**: 98% predictable revenue
-
-#### Customer Economics
-- **Average Contract Value (ACV)**: $17,400 annually (Blended average monthly revenue $1,450)
-- **Customer Lifetime Value (LTV)**: $12,800 (Growing to $26,500 by 2027)
-- **Customer Acquisition Cost (CAC)**: $450 (Blended across all channels)
-- **LTV/CAC Ratio**: 28x (Target: 83x by 2027, industry benchmark: 3-5x)
+### Customer Economics
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Average Contract Value (ACV)</strong></td>
+      <td>$17,400 annually</td>
+    </tr>
+    <tr>
+      <td><strong>Customer Lifetime Value (LTV)</strong></td>
+      <td>$12,800 (Growing to $26,500 by 2027)</td>
+    </tr>
+    <tr>
+      <td><strong>Customer Acquisition Cost (CAC)</strong></td>
+      <td>$450 (Blended across all channels)</td>
+    </tr>
+    <tr>
+      <td><strong>LTV/CAC Ratio</strong></td>
+      <td>28x (Target: 83x by 2027, industry: 3-5x)</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Profitability Metrics
-**Path to Profitability**
-
-#### Gross Margins
-- **Overall Gross Margin**: 82% (Target: 89% by 2027)
-- **Software Gross Margin**: 89% (Revenue share component)
-- **Services Gross Margin**: 65% (Campaign management component)
-- **Target Gross Margin**: 89% at scale by 2027
-
-#### Unit Economics
-- **Gross Revenue Retention**: 98%
-- **Net Revenue Retention**: 135% (Month 12 blended NRR)
-- **Payback Period**: 2.5 months (Target: 1.5 months by 2027)
-- **Cash Efficiency**: Revenue share model with 72% campaign success rate
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Overall Gross Margin</strong></td>
+      <td>82% (Target: 89% by 2027)</td>
+    </tr>
+    <tr>
+      <td><strong>Net Revenue Retention</strong></td>
+      <td>135% (Month 12 blended NRR)</td>
+    </tr>
+    <tr>
+      <td><strong>Payback Period</strong></td>
+      <td>2.5 months (Target: 1.5 months by 2027)</td>
+    </tr>
+    <tr>
+      <td><strong>Campaign Success Rate</strong></td>
+      <td>72% success rate</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Customer Metrics
 

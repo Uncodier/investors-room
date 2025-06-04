@@ -1,5 +1,43 @@
 # Unit Economics
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 <div className="nx-mt-4 nx-mb-8 nx-rounded-lg nx-bg-amber-50 nx-border nx-border-amber-200 nx-p-4 dark:nx-bg-amber-900/20 dark:nx-border-amber-800">
   <p className="nx-text-sm nx-text-amber-800 dark:nx-text-amber-200">
     <strong>⚠️ Disclaimer:</strong> The metrics and projections presented in this section are forecasts and targets based on initial experiments and preliminary market data. Actual results may vary significantly based on market conditions, product adoption, and other external factors. These projections should be considered as strategic objectives subject to continuous review.
@@ -12,43 +50,26 @@ Market Fit's innovative revenue share model creates exceptional unit economics w
 
 ## Key Metrics Overview
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-4">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">💰</div>
-    <h3 className="nx-font-semibold">Avg Customer LTV</h3>
-    <span className="nx-text-2xl nx-font-bold nx-text-green-600">$12,800</span>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-block nx-mt-1">
-      Growing to $26,500 by 2027
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">📈</div>
-    <h3 className="nx-font-semibold">Blended CAC</h3>
-    <span className="nx-text-2xl nx-font-bold nx-text-blue-600">$450</span>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-block nx-mt-1">
-      73% below industry avg
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">🎯</div>
-    <h3 className="nx-font-semibold">LTV/CAC Ratio</h3>
-    <span className="nx-text-2xl nx-font-bold nx-text-purple-600">28x</span>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Target: 83x by 2027
-    </p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">⚡</div>
-    <h3 className="nx-font-semibold">Payback Period</h3>
-    <span className="nx-text-2xl nx-font-bold nx-text-amber-600">2.5 mo</span>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      vs 12-18 mo industry
-    </p>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>💰 Avg Customer LTV</strong></td>
+      <td>$12,800 (Growing to $26,500 by 2027)</td>
+    </tr>
+    <tr>
+      <td><strong>📈 Blended CAC</strong></td>
+      <td>$450 (73% below industry avg)</td>
+    </tr>
+    <tr>
+      <td><strong>🎯 LTV/CAC Ratio</strong></td>
+      <td>28x (Target: 83x by 2027)</td>
+    </tr>
+    <tr>
+      <td><strong>⚡ Payback Period</strong></td>
+      <td>2.5 mo (vs 12-18 mo industry)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Customer Lifetime Value (LTV) by Plan
 

@@ -1,5 +1,43 @@
 # Business Model
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 ## Revenue Model Overview
 
 Market Fit operates a **multi-tiered SaaS model** designed for scalability and growth, with pricing that aligns with customer value creation and market positioning.
@@ -42,39 +80,26 @@ Only available 60 days after startup plan
 
 ## Revenue Streams
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-4">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h3 className="nx-text-2xl nx-font-bold nx-text-primary-600">45%</h3>
-    <h4 className="nx-font-semibold nx-mt-2">Revenue Share</h4>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Performance-based fees from client sales
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h3 className="nx-text-2xl nx-font-bold nx-text-primary-600">30%</h3>
-    <h4 className="nx-font-semibold nx-mt-2">SaaS Subscriptions</h4>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Monthly platform access fees
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h3 className="nx-text-2xl nx-font-bold nx-text-primary-600">15%</h3>
-    <h4 className="nx-font-semibold nx-mt-2">Campaign Investments</h4>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Co-funded marketing campaigns
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h3 className="nx-text-2xl nx-font-bold nx-text-primary-600">10%</h3>
-    <h4 className="nx-font-semibold nx-mt-2">Professional Services</h4>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Training and implementation
-    </p>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Revenue Share</strong></td>
+      <td>45% - Performance-based fees from client sales</td>
+    </tr>
+    <tr>
+      <td><strong>SaaS Subscriptions</strong></td>
+      <td>30% - Monthly platform access fees</td>
+    </tr>
+    <tr>
+      <td><strong>Campaign Investments</strong></td>
+      <td>15% - Co-funded marketing campaigns</td>
+    </tr>
+    <tr>
+      <td><strong>Professional Services</strong></td>
+      <td>10% - Training and implementation</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Revenue Share Model
 
@@ -114,31 +139,26 @@ Our revenue share model creates unique unit economics with aligned incentives:
 
 ## Key Financial Metrics
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-4">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">ARR Growth</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">145%</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">CAGR 2025-2027</p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">Rule of 40</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">120</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">By 2027</p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">Magic Number</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">1.8</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Sales efficiency</p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">Quick Ratio</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">4.2</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Growth efficiency</p>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>ARR Growth</strong></td>
+      <td>145% CAGR 2025-2027</td>
+    </tr>
+    <tr>
+      <td><strong>Rule of 40</strong></td>
+      <td>120 by 2027</td>
+    </tr>
+    <tr>
+      <td><strong>Magic Number</strong></td>
+      <td>1.8 - Sales efficiency</td>
+    </tr>
+    <tr>
+      <td><strong>Quick Ratio</strong></td>
+      <td>4.2 - Growth efficiency</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Revenue Projections (2025-2027)
 
@@ -267,35 +287,66 @@ Our revenue share model creates unique unit economics with aligned incentives:
   | **2028** | $35M | $31.5M (90%) | $26M | +$5.5M | +16% | +$4.8M |
   
   ### Quarterly Milestones
-  <div className="nx-grid nx-grid-cols-1 nx-gap-4 nx-mt-6 md:nx-grid-cols-4">
-    <div className="nx-text-center">
-      <span className="nx-font-medium nx-text-lg">Q3 2026</span>
-      <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">$2M MRR achieved</p>
-    </div>
-    <div className="nx-text-center">
-      <p className="nx-font-medium nx-text-lg">Q1 2027</p>
-      <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">Cash flow positive</p>
-    </div>
-    <div className="nx-text-center">
-      <p className="nx-font-medium nx-text-lg">Q3 2027</p>
-      <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">EBITDA positive</p>
-    </div>
-    <div className="nx-text-center">
-      <p className="nx-font-medium nx-text-lg">2028</p>
-      <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">15%+ net margins</p>
-    </div>
-  </div>
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>Q3 2026</strong></td>
+        <td>$2M MRR achieved</td>
+      </tr>
+      <tr>
+        <td><strong>Q1 2027</strong></td>
+        <td>Cash flow positive</td>
+      </tr>
+      <tr>
+        <td><strong>Q3 2027</strong></td>
+        <td>EBITDA positive</td>
+      </tr>
+      <tr>
+        <td><strong>2028</strong></td>
+        <td>15%+ net margins</td>
+      </tr>
+    </tbody>
+  </table>
   
   ### Key Financial Milestones
-  - **$5M ARR** (Q1 2026): Unit economics optimization
-  - **$10M ARR** (Q4 2026): Break-even operations
-  - **$20M ARR** (Q2 2028): Market leadership position
-  - **$50M ARR** (2029): IPO readiness
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>$5M ARR (Q1 2026)</strong></td>
+        <td>Unit economics optimization</td>
+      </tr>
+      <tr>
+        <td><strong>$10M ARR (Q4 2026)</strong></td>
+        <td>Break-even operations</td>
+      </tr>
+      <tr>
+        <td><strong>$20M ARR (Q2 2028)</strong></td>
+        <td>Market leadership position</td>
+      </tr>
+      <tr>
+        <td><strong>$50M ARR (2029)</strong></td>
+        <td>IPO readiness</td>
+      </tr>
+    </tbody>
+  </table>
   
   ### Capital Efficiency Metrics
-  - **Burn Multiple**: 0.56x (top quartile)
-  - **Revenue per $ Raised**: $3.20 by 2027
-  - **Path to Default Alive**: Q1 2027
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>Burn Multiple</strong></td>
+        <td>0.56x (top quartile)</td>
+      </tr>
+      <tr>
+        <td><strong>Revenue per $ Raised</strong></td>
+        <td>$3.20 by 2027</td>
+      </tr>
+      <tr>
+        <td><strong>Path to Default Alive</strong></td>
+        <td>Q1 2027</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 ## Future Revenue Opportunities

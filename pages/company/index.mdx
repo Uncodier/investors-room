@@ -2,6 +2,60 @@ import { NavigationCard } from '../../components/NavigationCard'
 
 # Company & Strategy Overview
 
+<style jsx>{`
+  .investment-summary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .investment-summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+  }
+  
+  .investment-summary h2 {
+    color: white !important;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+`}</style>
+
 ## About Market Fit
 
 Market Fit is on a mission to revolutionize sales through AI-powered virtual employees. We build virtual sales employees that handle repetitive tasks, enabling human salespeople to focus on what they do best: building relationships and closing deals.
@@ -57,23 +111,27 @@ Our platform brings sales automation out of the box to businesses of all sizes, 
 
 ## Company Snapshot
 
-<div className="nx-mt-8 nx-grid nx-grid-cols-2 nx-gap-6 md:nx-grid-cols-4">
-  <div>
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">2022</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Founded</div>
-  </div>
-  <div>
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">25</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Target Team 2025</div>
-  </div>
-  <div>
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">350+</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Target Customers 2025</div>
-  </div>
-  <div>
-    <div className="nx-text-3xl nx-font-bold nx-text-primary-600">$3.2M</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Revenue Target 2025</div>
-  </div>
+<div className="investment-summary">
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>Founded</strong></td>
+        <td>2022</td>
+      </tr>
+      <tr>
+        <td><strong>Target Team 2025</strong></td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td><strong>Target Customers 2025</strong></td>
+        <td>350+</td>
+      </tr>
+      <tr>
+        <td><strong>Revenue Target 2025</strong></td>
+        <td>$3.2M</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 ## Strategic Pillars
@@ -102,24 +160,23 @@ We co-invest in high-potential campaigns and share both risk and reward with our
 
 Our unique **revenue share model** sets us apart:
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-3">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">Commissionist Plan</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">$0/month</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">10% sales fee + 3% retention fee</p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">Startup Plan</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">$99/month</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">5% sales fee + 1.5% retention fee</p>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <h4 className="nx-font-semibold">Enterprise Plan</h4>
-    <p className="nx-text-2xl nx-font-bold nx-text-primary-600 nx-mt-2">$499/month</p>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">1% sales fee + annual caps</p>
-  </div>
+<div className="investment-summary">
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>Commissionist Plan</strong></td>
+        <td>$0/month - 10% sales fee + 3% retention fee</td>
+      </tr>
+      <tr>
+        <td><strong>Startup Plan</strong></td>
+        <td>$99/month - 5% sales fee + 1.5% retention fee</td>
+      </tr>
+      <tr>
+        <td><strong>Enterprise Plan</strong></td>
+        <td>$499/month - 1% sales fee + annual caps</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 ## What's Next
@@ -146,21 +203,25 @@ Our strategic roadmap for 2025-2027:
 
 ## Key Metrics & Performance
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-2 nx-gap-6 md:nx-grid-cols-4">
-  <div>
-    <div className="nx-text-2xl nx-font-bold nx-text-primary-600">28x</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">LTV/CAC Ratio</div>
-  </div>
-  <div>
-    <div className="nx-text-2xl nx-font-bold nx-text-primary-600">2.5</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Months Payback</div>
-  </div>
-  <div>
-    <div className="nx-text-2xl nx-font-bold nx-text-primary-600">135%</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Net Revenue Retention</div>
-  </div>
-  <div>
-    <div className="nx-text-2xl nx-font-bold nx-text-primary-600">82%</div>
-    <div className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400">Gross Margin</div>
-  </div>
+<div className="investment-summary">
+  <table className="summary-table">
+    <tbody>
+      <tr>
+        <td><strong>LTV/CAC Ratio</strong></td>
+        <td>28x</td>
+      </tr>
+      <tr>
+        <td><strong>Months Payback</strong></td>
+        <td>2.5</td>
+      </tr>
+      <tr>
+        <td><strong>Net Revenue Retention</strong></td>
+        <td>135%</td>
+      </tr>
+      <tr>
+        <td><strong>Gross Margin</strong></td>
+        <td>82%</td>
+      </tr>
+    </tbody>
+  </table>
 </div> 

@@ -1,5 +1,43 @@
 import { NavigationCard } from '../../components/NavigationCard'
 
+<style>{`
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    margin: 1.5rem 0;
+  }
+  
+  .summary-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-table td:first-child {
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .summary-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dark .summary-table {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .dark .summary-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .summary-table td:first-child {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`}</style>
+
 # Legal & Compliance Overview
 
 ## Corporate Structure & Governance
@@ -8,52 +46,72 @@ Market Fit maintains robust legal and compliance frameworks that support scalabl
 
 ## Key Legal Highlights
 
-<div className="nx-mt-6 nx-grid nx-grid-cols-1 nx-gap-4 md:nx-grid-cols-3">
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">🏛️</div>
-    <h3 className="nx-font-semibold">Delaware C-Corp</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      Standard VC-friendly structure
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">🔒</div>
-    <h3 className="nx-font-semibold">IP Protected</h3>
-    <span className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      3 patents granted, 5 pending
-    </span>
-  </div>
-  
-  <div className="nx-rounded-lg nx-border nx-border-gray-200 nx-p-4 dark:nx-border-gray-800">
-    <div className="nx-text-2xl nx-mb-2">✅</div>
-    <h3 className="nx-font-semibold">Fully Compliant</h3>
-    <p className="nx-text-sm nx-text-gray-600 dark:nx-text-gray-400 nx-mt-1">
-      SOC 2, GDPR, CCPA certified
-    </p>
-  </div>
-</div>
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>🏛️ Corporate Structure</strong></td>
+      <td>Delaware C-Corp (Standard VC-friendly structure)</td>
+    </tr>
+    <tr>
+      <td><strong>🔒 IP Protected</strong></td>
+      <td>3 patents granted, 5 pending</td>
+    </tr>
+    <tr>
+      <td><strong>✅ Fully Compliant</strong></td>
+      <td>SOC 2, GDPR, CCPA certified</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Corporate Information
 
 ### Entity Details
-- **Legal Name**: Market Fit, Inc.
-- **Incorporation**: Delaware, USA (2021)
-- **EIN**: 87-XXXXXXX
-- **Registered Agent**: Corporation Service Company
-- **Headquarters**: San Francisco, CA
-
-### Board of Directors
-- 5 members total
-- 2 founder seats
-- 2 investor seats
-- 1 independent director
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Legal Name</strong></td>
+      <td>Market Fit, Inc.</td>
+    </tr>
+    <tr>
+      <td><strong>Incorporation</strong></td>
+      <td>Delaware, USA (2021)</td>
+    </tr>
+    <tr>
+      <td><strong>EIN</strong></td>
+      <td>87-XXXXXXX</td>
+    </tr>
+    <tr>
+      <td><strong>Registered Agent</strong></td>
+      <td>Corporation Service Company</td>
+    </tr>
+    <tr>
+      <td><strong>Headquarters</strong></td>
+      <td>San Francisco, CA</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Stock Structure
-- **Authorized Shares**: 100,000,000
-- **Common Stock**: 60,000,000
-- **Preferred Stock**: 20,000,000
-- **Option Pool**: 20,000,000 (20%)
+<table className="summary-table">
+  <tbody>
+    <tr>
+      <td><strong>Authorized Shares</strong></td>
+      <td>100,000,000</td>
+    </tr>
+    <tr>
+      <td><strong>Common Stock</strong></td>
+      <td>60,000,000</td>
+    </tr>
+    <tr>
+      <td><strong>Preferred Stock</strong></td>
+      <td>20,000,000</td>
+    </tr>
+    <tr>
+      <td><strong>Option Pool</strong></td>
+      <td>20,000,000 (20%)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Intellectual Property Portfolio
 
