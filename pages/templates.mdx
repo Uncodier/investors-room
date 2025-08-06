@@ -1,0 +1,250 @@
+# 📋 Update Templates
+
+## Quick Update Guides
+
+<div className="nx-mt-6 nx-rounded-lg nx-bg-gradient-to-r nx-from-yellow-50 nx-to-amber-50 nx-border nx-border-yellow-200 nx-p-6 dark:nx-from-yellow-900/20 dark:nx-to-amber-900/20 dark:nx-border-yellow-800">
+  <h2 className="nx-text-2xl nx-font-bold nx-mb-4 nx-text-yellow-900 dark:nx-text-yellow-100">⚡ Rapid Report Updates</h2>
+  
+  <p className="nx-text-yellow-800 dark:nx-text-yellow-200 nx-mb-4">
+    Use these templates to quickly update your investor room each quarter. 
+    Simply replace the placeholder values with your actual metrics and copy the formatted content.
+  </p>
+  
+  <div className="nx-bg-yellow-100 dark:nx-bg-yellow-900/30 nx-p-4 nx-rounded-lg">
+    <p className="nx-text-sm nx-text-yellow-800 dark:nx-text-yellow-200">
+      <strong>💡 Pro Tip:</strong> Keep a Google Sheet or Airtable with your key metrics 
+      that auto-calculates QoQ/YoY changes. This makes quarterly updates even faster.
+    </p>
+  </div>
+</div>
+
+## 🎯 North Star Metric Template
+
+### ARR Update Template
+
+```markdown
+# 🎯 North Star Metric
+
+## Annual Recurring Revenue (ARR)
+
+<div className="nx-mt-6 nx-rounded-lg nx-bg-gradient-to-r nx-from-green-50 nx-to-emerald-50 nx-border nx-border-green-200 nx-p-6">
+  <div className="nx-text-center">
+    <div className="nx-text-6xl nx-font-bold nx-text-green-600 nx-mb-2">${NEW_ARR}</div>
+    <div className="nx-text-xl nx-text-green-700 nx-mb-4">Current ARR ({QUARTER} {YEAR})</div>
+    <div className="nx-flex nx-justify-center nx-space-x-8">
+      <div className="nx-text-center">
+        <div className="nx-text-2xl nx-font-semibold nx-text-green-600">+{QOQ_GROWTH}%</div>
+        <div className="nx-text-sm nx-text-gray-600">QoQ Growth</div>
+      </div>
+      <div className="nx-text-center">
+        <div className="nx-text-2xl nx-font-semibold nx-text-green-600">+{YOY_GROWTH}%</div>
+        <div className="nx-text-sm nx-text-gray-600">YoY Growth</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Key Metrics Breakdown
+
+| Metric | {CURRENT_QUARTER} | {PREVIOUS_QUARTER} | Change |
+|--------|---------|---------|---------|
+| **Total ARR** | ${NEW_ARR} | ${PREVIOUS_ARR} | +{QOQ_GROWTH}% |
+| **New ARR** | ${NEW_ARR_AMOUNT} | ${PREVIOUS_NEW_ARR} | +{NEW_ARR_GROWTH}% |
+| **Expansion ARR** | ${EXPANSION_ARR} | ${PREVIOUS_EXPANSION} | +{EXPANSION_GROWTH}% |
+| **Churned ARR** | -${CHURNED_ARR} | -${PREVIOUS_CHURNED} | {CHURN_CHANGE} |
+```
+
+**Placeholder Values to Replace:**
+- `{NEW_ARR}` - Current ARR (e.g., $3.2M)
+- `{QUARTER}` - Current quarter (e.g., Q1)
+- `{YEAR}` - Current year (e.g., 2025)
+- `{QOQ_GROWTH}` - Quarter-over-quarter growth percentage
+- `{YOY_GROWTH}` - Year-over-year growth percentage
+- `{CURRENT_QUARTER}` - Current quarter label
+- `{PREVIOUS_QUARTER}` - Previous quarter label
+- etc.
+
+## 📊 KPIs Dashboard Template
+
+### Quick Metrics Update
+
+```markdown
+<div className="nx-grid nx-grid-cols-1 md:nx-grid-cols-2 lg:nx-grid-cols-4 nx-gap-4">
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-3xl nx-font-bold nx-text-blue-600">{MAU_COUNT}</div>
+    <div className="nx-text-sm nx-text-blue-700">Monthly Active Users</div>
+    <div className="nx-text-xs nx-text-green-600">+{MAU_GROWTH}% QoQ</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-3xl nx-font-bold nx-text-green-600">{CHURN_RATE}%</div>
+    <div className="nx-text-sm nx-text-green-700">Monthly Churn Rate</div>
+    <div className="nx-text-xs nx-text-green-600">{CHURN_CHANGE} vs {PREV_QUARTER}</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-3xl nx-font-bold nx-text-purple-600">{CONVERSION_RATE}%</div>
+    <div className="nx-text-sm nx-text-purple-700">Lead Conversion</div>
+    <div className="nx-text-xs nx-text-green-600">+{CONVERSION_CHANGE}% vs {PREV_QUARTER}</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-3xl nx-font-bold nx-text-orange-600">{SALES_CYCLE}</div>
+    <div className="nx-text-sm nx-text-orange-700">Days Sales Cycle</div>
+    <div className="nx-text-xs nx-text-green-600">{CYCLE_CHANGE} days vs {PREV_QUARTER}</div>
+  </div>
+</div>
+```
+
+## 💰 Financial Statements Template
+
+### P&L Summary Template
+
+```markdown
+<div className="nx-grid nx-grid-cols-1 md:nx-grid-cols-3 nx-gap-4">
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-green-600">${QUARTERLY_REVENUE}</div>
+    <div className="nx-text-sm nx-text-green-700">Quarterly Revenue</div>
+    <div className="nx-text-xs nx-text-gray-600">+{REVENUE_GROWTH}% QoQ</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-blue-600">${OPERATING_EXPENSES}</div>
+    <div className="nx-text-sm nx-text-blue-700">Operating Expenses</div>
+    <div className="nx-text-xs nx-text-gray-600">+{OPEX_GROWTH}% QoQ</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-red-600">${NET_INCOME}</div>
+    <div className="nx-text-sm nx-text-red-700">Net Income</div>
+    <div className="nx-text-xs nx-text-green-600">{NET_INCOME_TREND} vs {PREV_QUARTER}</div>
+  </div>
+</div>
+```
+
+## 🚀 Product Updates Template
+
+### Feature Release Template
+
+```markdown
+### {FEATURE_NUMBER}. {FEATURE_NAME} ({RELEASE_DATE})
+
+**{FEATURE_DESCRIPTION}**
+
+<div className="nx-bg-{COLOR}-50 nx-p-4 nx-rounded-lg nx-border nx-border-{COLOR}-200 nx-mt-4">
+  <h4 className="nx-font-semibold nx-text-{COLOR}-900 nx-mb-2">Key Features:</h4>
+  <ul className="nx-list-disc nx-list-inside nx-text-sm nx-text-{COLOR}-800 nx-space-y-1">
+    <li>{FEATURE_DETAIL_1}</li>
+    <li>{FEATURE_DETAIL_2}</li>
+    <li>{FEATURE_DETAIL_3}</li>
+    <li>{FEATURE_DETAIL_4}</li>
+  </ul>
+  <div className="nx-mt-3 nx-text-sm">
+    <span className="nx-font-semibold">Adoption:</span> {ADOPTION_RATE}% of active users | 
+    <span className="nx-font-semibold">Rating:</span> {USER_RATING}/5
+  </div>
+</div>
+```
+
+## 📊 Quarterly Comparison Template
+
+### Growth Metrics Template
+
+```markdown
+<div className="nx-grid nx-grid-cols-1 md:nx-grid-cols-2 lg:nx-grid-cols-4 nx-gap-4">
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-green-600">+{REVENUE_QOQ}%</div>
+    <div className="nx-text-sm nx-text-green-700">Revenue QoQ</div>
+    <div className="nx-text-xs nx-text-gray-600">{CURRENT_Q} vs {PREVIOUS_Q}</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-blue-600">+{CUSTOMER_QOQ}%</div>
+    <div className="nx-text-sm nx-text-blue-700">Customers QoQ</div>
+    <div className="nx-text-xs nx-text-gray-600">{NEW_CUSTOMER_COUNT} vs {OLD_CUSTOMER_COUNT}</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-purple-600">+{MAU_QOQ}%</div>
+    <div className="nx-text-sm nx-text-purple-700">MAU QoQ</div>
+    <div className="nx-text-xs nx-text-gray-600">{NEW_MAU}K vs {OLD_MAU}K</div>
+  </div>
+  <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+    <div className="nx-text-2xl nx-font-bold nx-text-orange-600">{CAC_IMPROVEMENT}%</div>
+    <div className="nx-text-sm nx-text-orange-700">CAC Improvement</div>
+    <div className="nx-text-xs nx-text-gray-600">{SEGMENT} segment</div>
+  </div>
+</div>
+```
+
+## 📅 Quarterly Report Template
+
+### Executive Summary Template
+
+```markdown
+# 📅 {QUARTER} {YEAR} Report
+
+## Executive Summary
+
+<div className="nx-mt-6 nx-rounded-lg nx-bg-gradient-to-r nx-from-emerald-50 nx-to-green-50 nx-border nx-border-emerald-200 nx-p-6">
+  <h2 className="nx-text-2xl nx-font-bold nx-mb-4 nx-text-emerald-900">🎉 {QUARTER_DESCRIPTION}</h2>
+  
+  <p className="nx-text-emerald-800 nx-mb-6">
+    {QUARTER} {YEAR} {QUARTER_SUMMARY_DESCRIPTION}
+  </p>
+  
+  <div className="nx-grid nx-grid-cols-1 md:nx-grid-cols-2 lg:nx-grid-cols-4 nx-gap-4">
+    <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+      <div className="nx-text-2xl nx-font-bold nx-text-emerald-600">${REVENUE}</div>
+      <div className="nx-text-sm nx-text-emerald-700">Revenue (+{REVENUE_GROWTH}% QoQ)</div>
+    </div>
+    <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+      <div className="nx-text-2xl nx-font-bold nx-text-blue-600">${ARR}</div>
+      <div className="nx-text-sm nx-text-blue-700">ARR (+{ARR_GROWTH}% QoQ)</div>
+    </div>
+    <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+      <div className="nx-text-2xl nx-font-bold nx-text-purple-600">{CUSTOMERS}</div>
+      <div className="nx-text-sm nx-text-purple-700">Customers (+{CUSTOMER_GROWTH}% QoQ)</div>
+    </div>
+    <div className="nx-bg-white nx-p-4 nx-rounded-lg nx-shadow-sm">
+      <div className="nx-text-2xl nx-font-bold nx-text-orange-600">${FUNDING}</div>
+      <div className="nx-text-sm nx-text-orange-700">{FUNDING_DESCRIPTION}</div>
+    </div>
+  </div>
+</div>
+```
+
+## 🛠️ Automation Tools
+
+### Recommended Tools for Updates
+
+#### Google Sheets Integration
+- Set up formulas for QoQ/YoY calculations
+- Use Apps Script to generate markdown
+- Link with your CRM/analytics tools
+
+#### Zapier Workflows
+- Auto-pull metrics from Stripe, Salesforce, etc.
+- Generate template updates automatically
+- Send reminders for quarterly updates
+
+#### GitHub Actions
+- Auto-deploy updates to your investor room
+- Version control for metric changes
+- Automated backups of previous quarters
+
+### Quick Update Checklist
+
+#### Data Updates
+- [ ] Update ARR and revenue figures
+- [ ] Refresh customer count and growth metrics
+- [ ] Update MAU, churn, and engagement metrics
+
+#### Product Updates
+- [ ] Add new product features and adoption rates
+- [ ] Update financial statements and burn rate
+- [ ] Refresh quarterly comparison charts
+
+#### Content Updates
+- [ ] Add any new milestones or achievements
+- [ ] Update next quarter projections
+- [ ] Review and proofread all sections
+- [ ] Deploy updates to investor room
+
+---
+
+*Template last updated: December 15, 2024*  
+*Next template review: March 15, 2025*

@@ -1,0 +1,284 @@
+# 📖 Methodology
+
+<div className="nx-mb-8 nx-text-center">
+  <div className="nx-inline-flex nx-items-center nx-px-4 nx-py-2 nx-bg-slate-100 dark:nx-bg-slate-900/30 nx-text-slate-800 dark:nx-text-slate-200 nx-rounded-full nx-text-sm nx-font-semibold nx-mb-4">
+    <span className="nx-mr-2">🔍</span>
+    Transparent & Standardized Metrics
+  </div>
+  <p className="nx-text-lg nx-text-gray-600 dark:nx-text-gray-300 nx-max-w-3xl nx-mx-auto">
+    Comprehensive documentation of our metric calculations and reporting standards, ensuring consistency, transparency, and alignment with industry best practices.
+  </p>
+</div>
+
+## 🧮 How We Calculate Our Metrics
+
+<div className="nx-mt-6 nx-rounded-lg nx-bg-gradient-to-r nx-from-slate-50 nx-to-gray-50 nx-border nx-border-slate-200 nx-p-6 dark:nx-from-slate-900/20 dark:nx-to-gray-900/20 dark:nx-border-slate-800">
+  <h2 className="nx-text-2xl nx-font-bold nx-mb-4 nx-text-slate-900 dark:nx-text-slate-100">🔍 Transparency in Metrics</h2>
+  
+  <p className="nx-text-slate-800 dark:nx-text-slate-200 nx-mb-4">
+    This page explains how we calculate and report our key metrics to ensure consistency 
+    and transparency for our investors. All calculations follow industry best practices 
+    and SaaS metrics standards.
+  </p>
+  
+  <div className="nx-bg-slate-100 dark:nx-bg-slate-900/30 nx-p-4 nx-rounded-lg">
+    <p className="nx-text-sm nx-text-slate-800 dark:nx-text-slate-200">
+      <strong>📊 Data Sources:</strong> Stripe (billing), Salesforce (CRM), Mixpanel (product analytics), 
+      internal databases, and manual reporting where necessary.
+    </p>
+  </div>
+</div>
+
+## 🎯 North Star Metrics
+
+### Annual Recurring Revenue (ARR)
+
+**Definition:** Total value of recurring subscription revenue normalized to a one-year period.
+
+**Calculation:**
+```
+ARR = (Monthly Recurring Revenue × 12) + Annual Contracts
+```
+
+**Components:**
+- **New ARR**: Revenue from new customers acquired in the period
+- **Expansion ARR**: Additional revenue from existing customers (upgrades, add-ons)
+- **Contraction ARR**: Revenue lost from existing customers (downgrades)
+- **Churned ARR**: Revenue lost from customers who canceled
+
+**Reporting Rules:**
+- Only recurring subscription revenue counts (excludes one-time setup fees)
+- Annual contracts are included at full value when signed
+- Multi-year contracts are included at the annual amount, not total contract value
+- ARR is calculated at the end of each month/quarter
+
+### Customer Acquisition Cost (CAC)
+
+**Definition:** Total sales and marketing expenses required to acquire one new customer.
+
+**Calculation:**
+```
+CAC = (Sales & Marketing Expenses) ÷ Number of New Customers Acquired
+```
+
+**Time Period:** Calculated monthly and aggregated quarterly
+
+**Included Expenses:**
+- Sales team salaries and commissions
+- Marketing spend (ads, content, events)
+- Marketing team salaries
+- Sales tools and software
+- Allocated portion of overhead costs
+
+**Excluded:**
+- Customer success costs
+- Product development costs
+- General administrative expenses
+
+## 📊 Product & Engagement Metrics
+
+### Monthly Active Users (MAU)
+
+**Definition:** Unique users who performed at least one meaningful action in the product during a calendar month.
+
+**Meaningful Actions Include:**
+- Logging into the platform
+- Sending an AI-generated message
+- Viewing analytics dashboard
+- Creating or modifying workflows
+- Using mobile app for sales activities
+
+**Calculation Period:** Calendar month (1st to last day)
+
+**Segmentation:**
+- By user type (admin, sales rep, manager)
+- By customer segment (Enterprise, Mid-Market, SMB)
+- By product usage level (power user, regular, casual)
+
+### Net Promoter Score (NPS)
+
+**Definition:** Measures customer satisfaction and likelihood to recommend our product.
+
+**Calculation:**
+```
+NPS = % Promoters (9-10) - % Detractors (0-6)
+```
+
+**Survey Methodology:**
+- Quarterly email surveys to all active users
+- Single question: "How likely are you to recommend Market Fit to a colleague?" (0-10 scale)
+- Follow-up open-ended question for feedback
+- Minimum 30% response rate required for statistical significance
+
+### Feature Adoption Rate
+
+**Definition:** Percentage of active customers using a specific feature.
+
+**Calculation:**
+```
+Adoption Rate = (Customers Using Feature ÷ Total Active Customers) × 100
+```
+
+**Measurement Criteria:**
+- Must use feature at least once per month to count as "adopted"
+- Tracked separately for each customer segment
+- New features measured from launch date + 30 days
+
+## 💰 Financial Metrics
+
+### Monthly Recurring Revenue (MRR)
+
+**Definition:** Predictable monthly revenue from all active subscriptions.
+
+**Calculation Components:**
+- **New MRR**: From new customers in the month
+- **Expansion MRR**: From upgrades and add-ons
+- **Contraction MRR**: From downgrades
+- **Churned MRR**: From canceled subscriptions
+
+**Recognition Rules:**
+- Revenue recognized when service is delivered
+- Prorated for mid-month starts/cancellations
+- Annual subscriptions divided by 12
+- Usage-based revenue excluded from MRR
+
+### Net Revenue Retention (NRR)
+
+**Definition:** Measures revenue growth from existing customers over time.
+
+**Calculation:**
+```
+NRR = (Starting MRR + Expansion - Contraction - Churn) ÷ Starting MRR
+```
+
+**Cohort Methodology:**
+- Measured over 12-month periods
+- Cohorts defined by customer acquisition month
+- Only includes customers with >90 days tenure
+- Excludes customers who churned within first 90 days
+
+### Gross Margin
+
+**Definition:** Percentage of revenue remaining after direct costs of service delivery.
+
+**Cost of Goods Sold (COGS) Includes:**
+- Cloud infrastructure costs (AWS, Vercel, etc.)
+- Third-party AI/ML service costs
+- Customer support team costs
+- Data processing and storage costs
+- Payment processing fees
+
+**Excluded from COGS:**
+- Sales and marketing expenses
+- Product development costs
+- General administrative expenses
+- Depreciation of equipment
+
+## 📈 Customer Success Metrics
+
+### Customer Churn Rate
+
+**Definition:** Percentage of customers who cancel their subscription in a given period.
+
+**Calculation:**
+```
+Monthly Churn Rate = (Customers Lost in Month ÷ Customers at Start of Month) × 100
+```
+
+**Methodology:**
+- Calculated monthly and aggregated to quarterly
+- Customer counted as churned on cancellation date
+- Voluntary and involuntary churn tracked separately
+- Segmented by customer size and acquisition channel
+
+### Customer Lifetime Value (LTV)
+
+**Definition:** Predicted total revenue from a customer over their entire relationship.
+
+**Calculation:**
+```
+LTV = (Average Revenue per Customer ÷ Monthly Churn Rate) × Gross Margin %
+```
+
+**Assumptions:**
+- Based on historical churn rates by segment
+- Includes expansion revenue in calculations
+- Gross margin applied to account for service costs
+- Updated quarterly with latest churn data
+
+## 🚀 Sales Metrics
+
+### Lead Conversion Rate
+
+**Definition:** Percentage of qualified leads that become paying customers.
+
+**Sales Funnel Stages:**
+1. **Lead**: Contact information captured
+2. **Marketing Qualified Lead (MQL)**: Meets demographic and behavioral criteria
+3. **Sales Qualified Lead (SQL)**: Confirmed budget, authority, need, timeline
+4. **Opportunity**: Active sales process initiated
+5. **Customer**: Contract signed and onboarded
+
+**Conversion Rates Tracked:**
+- Lead → MQL
+- MQL → SQL  
+- SQL → Opportunity
+- Opportunity → Customer
+- Lead → Customer (overall)
+
+### Sales Cycle Length
+
+**Definition:** Average time from first qualified contact to closed won deal.
+
+**Measurement:**
+- Start: SQL creation date
+- End: Contract signature date
+- Segmented by deal size and customer type
+- Calculated as median, not average, to avoid outlier skew
+
+## 📋 Data Quality Standards
+
+### Data Collection Principles
+
+1. **Accuracy**: All metrics verified by at least two team members
+2. **Consistency**: Same calculation methodology each period
+3. **Timeliness**: Metrics updated within 5 business days of period end
+4. **Transparency**: Calculation methods documented and accessible
+5. **Segmentation**: Key metrics broken down by relevant dimensions
+
+### Quality Controls
+
+- **Monthly Reviews**: Finance and ops teams review all metrics
+- **Quarterly Audits**: External validation of key financial metrics
+- **Tool Validation**: Cross-reference between different data sources
+- **Trend Analysis**: Flag unusual changes for investigation
+- **Documentation**: All metric changes logged with explanations
+
+### Metric Revision Policy
+
+- **Minor Corrections**: Applied retroactively with footnote explanation
+- **Methodology Changes**: Applied prospectively with clear disclosure
+- **Historical Restatements**: Only for material errors, with full explanation
+- **Communication**: All changes communicated to investors within 48 hours
+
+## 🔄 Reporting Schedule
+
+### Update Frequency
+
+| Metric Category | Update Frequency | Reporting Lag |
+|----------------|------------------|---------------|
+| **Financial Metrics** | Monthly | 5 business days |
+| **Product Metrics** | Weekly | 2 business days |
+| **Customer Metrics** | Monthly | 3 business days |
+| **Sales Metrics** | Weekly | 1 business day |
+
+### Quarterly Reviews
+
+- **Month 1**: Preliminary metrics and trends
+- **Month 2**: Deep dive analysis and action plans  
+- **Month 3**: Final quarter numbers and forward projections
+
+---
+
+*Methodology last updated: December 15, 2024*  
+*Next methodology review: June 15, 2025*

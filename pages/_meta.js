@@ -1,38 +1,45 @@
 export default {
-  "index": {
-    "title": "Overview",
-    "theme": {
-      "typesetting": "article"
+  index: {
+    title: '🏠 Dashboard',
+    theme: {
+      breadcrumb: false,
+      footer: true,
+      sidebar: true,
+      toc: true,
+      pagination: true
     }
   },
-  "executive-summary": {
-    "title": "Executive Summary",
-    "theme": {
-      "typesetting": "article"
-    }
+  'north-star': {
+    title: '🎯 North Star Metric'
   },
-  "company": {
-    "title": "Company & Strategy"
+  'kpis': {
+    title: '📊 KPIs Dashboard'
   },
-  "team": {
-    "title": "Team & Organization"
+  'financials': {
+    title: '💰 Financial Statements'
   },
-  "product": {
-    "title": "Product & Technology"
+  'product-updates': {
+    title: '🚀 Product Updates'
   },
-  "market": {
-    "title": "Market & Competition"
+  '---': {
+    type: 'separator'
   },
-  "traction": {
-    "title": "Traction & Metrics"
+  'q4-2024': {
+    title: '📅 Q4 2024'
   },
-  "financials": {
-    "title": "Financials & Investment"
+  'q1-2025': {
+    title: '📅 Q1 2025'
   },
-  "legal": {
-    "title": "Legal & Compliance"
+  'quarterly-comparison': {
+    title: '📊 Quarterly Analysis'
   },
-  "appendix": {
-    "title": "Additional Resources"
+  '----': {
+    type: 'separator'
+  },
+  'templates': {
+    title: '📋 Templates'
+  },
+  'methodology': {
+    title: '📖 Methodology'
   }
-} 
+}
