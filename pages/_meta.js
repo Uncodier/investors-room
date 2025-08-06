@@ -37,9 +37,16 @@ export default {
     type: 'separator'
   },
   'templates': {
-    title: '📋 Templates'
+    title: '📋 Templates',
+    display: 'hidden'
   },
   'methodology': {
     title: '📖 Methodology'
+  },
+  '-----': {
+    type: 'separator'
+  },
+  'external-links': {
+    title: '🔗 External Links'
   }
 }
