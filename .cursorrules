@@ -1,0 +1,276 @@
+# 📊 Investor Room - Cursor AI Rules
+
+## 🎯 Project Overview
+This is an **Investor Room Dashboard** built with **Nextra** (Next.js + MDX) for founders to create professional investor reports. The project is designed to be easily customizable for any startup's metrics and data.
+
+## 🏗️ Architecture & Tech Stack
+- **Framework**: Next.js 14 with Nextra (documentation framework)
+- **Content**: MDX files (Markdown + React components)
+- **Styling**: Tailwind CSS (built into Nextra theme)
+- **Language**: TypeScript
+- **Package Manager**: pnpm (preferred), npm, or yarn
+- **Deployment**: Vercel (optimized for)
+
+## 📁 Project Structure
+```
+investor-room/
+├── components/           # Custom React components
+│   ├── MetricCard.tsx   # Reusable metric display cards
+│   ├── GradientHeader.tsx # Styled headers
+│   ├── FeatureCard.tsx  # Feature/product cards
+│   └── NavigationCard.tsx # Navigation elements
+├── pages/               # MDX content pages (Nextra routing)
+│   ├── _app.tsx         # Next.js app wrapper
+│   ├── _meta.js         # Nextra page metadata
+│   ├── index.mdx        # Main dashboard/homepage
+│   ├── kpis.mdx         # Key Performance Indicators
+│   ├── financials.mdx   # Financial metrics
+│   ├── q1-2025.mdx      # Quarterly reports
+│   └── methodology.mdx  # Calculation explanations
+├── theme.config.tsx     # Nextra theme configuration
+└── next.config.mjs      # Next.js configuration
+```
+
+## 🎨 Design System & Components
+
+### Color Palette
+- **Primary**: Blue/Indigo gradients for main sections
+- **Success**: Green/Emerald for positive metrics
+- **Warning**: Orange/Yellow for caution areas
+- **Neutral**: Gray scale for text and backgrounds
+
+### Component Patterns
+- Use **gradient backgrounds** for important sections
+- **Responsive grid layouts** for metrics
+- **Card-based design** for individual metrics
+- **Table format** for comparative data
+- **Dark mode support** throughout
+
+### Typography
+- **Headers**: Bold, large sizes with emoji icons
+- **Metrics**: Large numbers with smaller descriptive text
+- **Tables**: Clean, readable format with clear separators
+
+## 📝 Content Guidelines
+
+### MDX File Structure
+```mdx
+# Page Title with Emoji
+
+<div className="intro-section">
+  Brief introduction or summary
+</div>
+
+## 📊 Section Title
+
+Content with components...
+
+### Subsection
+More detailed content...
+
+---
+*Last updated: [Date]*
+```
+
+### Metric Display Patterns
+```mdx
+| Metric | Current Value | Growth Rate | Notes |
+|--------|---------------|-------------|-------|
+| **ARR** | $2.4M | +85% QoQ | Primary metric |
+```
+
+### Gradient Sections
+```mdx
+<div className="nx-mt-8 nx-rounded-xl nx-bg-gradient-to-br nx-from-blue-50 nx-via-indigo-50 nx-to-purple-50 nx-border nx-border-blue-200 nx-p-8 nx-shadow-lg dark:nx-from-blue-900/30 dark:nx-via-indigo-900/30 dark:nx-to-purple-900/30 dark:nx-border-blue-700">
+  Content here...
+</div>
+```
+
+## 🛠️ Development Rules
+
+### Code Style
+- **TypeScript**: Always use TypeScript for components
+- **ES Modules**: Use import/export syntax
+- **Component Structure**: Functional components with hooks
+- **File Naming**: PascalCase for components, kebab-case for pages
+
+### Component Development
+```tsx
+// Template for new components
+import React from 'react';
+
+interface ComponentProps {
+  title: string;
+  value: string | number;
+  trend?: 'up' | 'down' | 'neutral';
+  className?: string;
+}
+
+export default function Component({ 
+  title, 
+  value, 
+  trend = 'neutral',
+  className = '' 
+}: ComponentProps) {
+  return (
+    <div className={`component-base ${className}`}>
+      {/* Component content */}
+    </div>
+  );
+}
+```
+
+### MDX Best Practices
+- **Import components** at the top of MDX files
+- **Use semantic HTML** within MDX
+- **Maintain consistent spacing** between sections
+- **Include last updated dates** at the bottom
+
+### Responsive Design
+- **Mobile-first approach** with Tailwind classes
+- **Grid layouts** that stack on mobile
+- **Readable typography** at all screen sizes
+- **Touch-friendly** navigation elements
+
+## 🔧 Configuration Files
+
+### theme.config.tsx
+- **Logo**: Update for your startup
+- **Links**: GitHub, documentation links
+- **Footer**: Copyright and branding
+- **Navigation**: Page organization
+
+### next.config.mjs
+- **Nextra configuration**: Theme and MDX options
+- **Performance settings**: Image optimization, minification
+- **Experimental features**: ESM externals
+
+## 📊 Content Customization
+
+### For New Startups
+1. **Update metrics** in all `.mdx` files
+2. **Replace company information** throughout
+3. **Modify color schemes** in components
+4. **Update logos and branding** in theme config
+5. **Customize navigation** structure
+
+### Metric Categories
+- **Financial**: ARR, Revenue, Cash Runway, Burn Rate
+- **Growth**: Customer Acquisition, Retention, Churn
+- **Product**: DAU/MAU, Feature Adoption, NPS
+- **Operational**: Team Size, Hiring Rate, Productivity
+
+### Update Frequency
+- **Monthly**: Key metrics and KPIs
+- **Quarterly**: Comprehensive reports and comparisons
+- **As needed**: Product updates and milestones
+
+## 🚀 Development Commands
+
+```bash
+# Start development server
+pnpm dev              # Runs on localhost:3002
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+
+# Type checking
+npx tsc --noEmit
+
+# Linting (if configured)
+npx eslint . --ext .ts,.tsx,.js,.jsx
+```
+
+## 🔒 Authentication Integration
+
+### Auth0 Setup
+- Install: `@auth0/nextjs-auth0`
+- Configure environment variables
+- Add auth middleware to protect pages
+- Use `withPageAuthRequired` for protected routes
+
+### Supabase Setup
+- Install: `@supabase/auth-helpers-nextjs`
+- Configure client and middleware
+- Set up OAuth providers
+- Implement session management
+
+## 📱 Common Tasks
+
+### Adding New Metrics
+1. Create or update relevant `.mdx` file
+2. Use consistent table format
+3. Include growth rates and context
+4. Update last modified date
+
+### Creating New Pages
+1. Add `.mdx` file to `pages/` directory
+2. Update `_meta.js` for navigation
+3. Follow existing content structure
+4. Test responsive design
+
+### Customizing Components
+1. Modify existing components in `components/`
+2. Maintain TypeScript interfaces
+3. Follow Tailwind CSS patterns
+4. Test in both light and dark modes
+
+### Deployment
+1. Push to GitHub repository
+2. Connect to Vercel project
+3. Configure environment variables
+4. Set up custom domain (optional)
+
+## 🎯 Performance Guidelines
+
+- **Image optimization**: Use Next.js Image component
+- **Code splitting**: Leverage Next.js automatic splitting
+- **Static generation**: MDX files are statically generated
+- **Bundle analysis**: Use `@next/bundle-analyzer` if needed
+
+## 🐛 Troubleshooting
+
+### Common Issues
+- **MDX parsing errors**: Check syntax and component imports
+- **Build failures**: Verify TypeScript types and imports
+- **Styling issues**: Ensure Tailwind classes are correct
+- **Routing problems**: Check file naming and _meta.js config
+
+### Debug Commands
+```bash
+# Check TypeScript
+npx tsc --noEmit
+
+# Analyze bundle
+npm install @next/bundle-analyzer
+npm run analyze
+
+# Check for unused dependencies
+npx depcheck
+```
+
+## 📚 Resources
+
+- **Nextra Documentation**: https://nextra.site/
+- **Next.js Documentation**: https://nextjs.org/docs
+- **MDX Documentation**: https://mdxjs.com/
+- **Tailwind CSS**: https://tailwindcss.com/docs
+- **Vercel Deployment**: https://vercel.com/docs
+
+## 🎉 Best Practices Summary
+
+1. **Keep content updated** with real metrics
+2. **Maintain consistent styling** across pages
+3. **Use semantic component names**
+4. **Test on multiple devices** and screen sizes
+5. **Follow accessibility guidelines**
+6. **Keep components under 500 lines** (user rule)
+7. **Use ES Modules** throughout the project
+8. **Never create mock API responses** (user rule)
+
+---
+
+*This file helps Cursor AI understand the project structure and provide better assistance with development tasks.*
