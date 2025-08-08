@@ -5,7 +5,7 @@
 Investor Room is a modern and customizable template built with **Nextra** that allows any founder to create a professional dashboard for investor reports, business metrics, and product updates.
 
 ## 🌐 Live Demo
-**[🚀 View Live Example](https://investors-room-qicb7ygc5-uncodie.vercel.app)**
+**[🚀 View Live Example](https://investors-room.vercel.app/)**
 
 ![Investor Room Dashboard Preview](https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge)
 ![Next.js](https://img.shields.io/badge/Next.js-14.0+-black?style=for-the-badge&logo=next.js)
