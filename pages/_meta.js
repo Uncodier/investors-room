@@ -21,6 +21,12 @@ export default {
   'product-updates': {
     title: '🚀 Product Updates'
   },
+  'team': {
+    title: '👥 Team & Talent'
+  },
+  'fundraising': {
+    title: '💰 Fundraising'
+  },
   '---': {
     type: 'separator'
   },
